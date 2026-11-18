@@ -1,212 +1,216 @@
 # HUNTIQUE — Antique Intelligence, Historical Archives & Marketplace
 
-**HUNTIQUE** — независимая аналитическая платформа и транзакционная инфраструктура для рынка антиквариата в Чешской Республике. Проект объединяет верифицированный архив состоявшихся сделок, геопространственную карту цен и двусторонний маркетплейс предложений и готового покупательского спроса.
+**HUNTIQUE** is an independent analytics platform and transaction infrastructure for the antiques market in the Czech Republic. It combines an archive of completed sales, a geospatial price map, and a two-sided marketplace that connects sell offers with committed buyer demand.
+
+**Live prototype:** https://antikmapa.vercel.app · **Repository:** https://github.com/Kepler-438b/HUNTIQUE
 
 ---
 
-## Человеческое описание главных функций
+## Key Features
 
-### 1. Исторический архив сделок (`/historical`)
-Реестр реальных состоявшихся сделок купли-продажи антиквариата в Чехии.
-- **Только закрытые сделки:** В архиве отображаются исключительно фактически завершенные сделки (молотковые аукционные цены, галерейные продажи). Активные объявления из продажи сюда не попадают.
-- **Подробные данные:** По каждой сделке зафиксированы: предмет, категория, подкатегория, мастер/мастерская, исторический период, город/локация, финальная цена в CZK (с разбивкой на молотковую цену и аукционную комиссию), дата сделки и ссылка на первоисточник.
-- **Метрики оборота:** Автоматический расчет совокупного торгового оборота (в чешских кронах) и числа отслеживаемых независимых аукционных домов и платформ.
-- **Досье сделки (Modal Dossier):** При клике на строку открывается карточка с полными метаданными предмета, сохранностью, цифровой институциональной печатью и прямой ссылкой на аукционный каталог.
+### 1. Historical Transactions Archive (`/historical`)
+A register of completed antique sales in the Czech Republic.
+- **Closed sales only:** The archive lists only transactions that actually took place (auction hammer prices, gallery sales). Active listings are never included.
+- **Detailed records:** Each sale records the item, category, subcategory, maker or workshop, historical period, city/location, final price in CZK (split into hammer price and buyer's premium), sale date, and a link to the original source.
+- **Turnover metrics:** Total trading volume (in Czech koruna) and the number of tracked auction houses and platforms are calculated automatically.
+- **Transaction dossier (modal):** Clicking a row opens a card with the item's full metadata, its condition, the record fingerprint, and a direct link to the auction catalogue.
 
-### 2. Геопространственная Карта цен и Аналитика (`/analysis`)
-Интерактивная карта Чешской Республики (на базе Leaflet), визуализирующая пространственное распределение сделок и цен.
-- **Переключение режимов:**
-  - **All (Все предметы):** Отображает и закрытые архивные сделки, и активные объявления в продаже.
-  - **Active (В продаже):** 413 актуальных лотов с Aukro с красными маркерами (`#e5252a`), запрашиваемыми ценами (*Asking price*) и ссылками на лоты.
-  - **Sold (Продано):** 63 закрытые аукционные сделки с зафиксированным результатом (Livebid.cz + Hejtmánek, Zezula). Лоты без ставок не считаются продажами.
-- **Приблизительное расположение (2D Disk Dispersion):** Источники не публикуют местонахождение предмета, поэтому город присваивается алгоритмически (`location_precision = approximate`), и это указано в интерфейсе. Точки распределяются по Праги (Прага 1, 2, 5, 6, Винограды, Смихов), Брно, Пльзеня, Карловых Вар, Либерца и Оломоуца без наложений, линий и кластерных полос. Маркеры легко читаются и прокликиваются.
-- **График динамики цен (Trend Chart):** Интерактивная кривая медианных цен по годам для конкретного мастера и типа предмета (например, стулья Thonet или стекло Moser).
+### 2. Price Map & Analytics (`/analysis`)
+An interactive Leaflet map of the Czech Republic showing where sales and prices are distributed.
+- **View modes:**
+  - **All:** Shows both closed archive sales and active listings.
+  - **Active:** 413 current Aukro listings shown as red markers (`#e5252a`), with asking prices and links to each listing.
+  - **Sold:** 63 closed auction sales with a recorded result (Livebid.cz plus Hejtmánek and Zezula). Lots that received no bids are not counted as sales.
+- **Approximate location (2D disk dispersion):** The sources do not publish where an item is located, so each record is assigned a city algorithmically (`location_precision = approximate`), and the interface says so. Points are spread across Prague (Prague 1, 2, 5, 6, Vinohrady, Smíchov), Brno, Plzeň, Karlovy Vary, Liberec and Olomouc without overlaps, lines or clustered bands, so markers stay easy to read and click.
+- **Price trend chart:** An interactive curve of median prices by year for a given maker and item type (for example, Thonet chairs or Moser glass).
 
-### 3. Маркетплейс предложений и готового спроса (`/marketplace`)
-Двусторонняя витрина для коллекционеров, реставраторов и антикваров.
-- **1 — Предложения (Sell Offers):** Предметы, выставленные на продажу магазинами и частными владельцами, с поддержкой механизма встречных торгов (Counter-Offers).
-- **2 — Готовый спрос (Buy Requests):** Публичные заявки покупателей с зафиксированным бюджетом (Ready Demand). Продавец с подходящим предметом может закрыть сделку в один клик.
-- **Страница лота (`/marketplace/[id]`):** Полноразмерная галерея фотографий, отчет о сохранности, рыночная медиана, история встречных ставок и форма предложения цены.
+### 3. Offers & Buy Requests Marketplace (`/marketplace`)
+A two-sided showcase for collectors, restorers and antique dealers.
+- **1 — Sell offers:** Items listed for sale by shops and private owners, with support for counter-offers.
+- **2 — Buy requests (ready demand):** Public requests from buyers with a fixed budget. A seller with a matching item can close the deal in one click.
+- **Lot page (`/marketplace/[id]`):** Full-size photo gallery, condition report, market median, counter-offer history, and a price-offer form.
 
-### 4. Криптографические подписи верификации (Verification Signatures)
-Каждая запись в исторической базе заверена уникальной институциональной подписью:
+### 4. Record Fingerprints
+Every record in the archive carries a unique fingerprint in the format:
 $$\text{HTQ-VF-XXXX-XXXX-XXXX}$$
-- Подпись вычисляется детерминированно на основе криптографического SHA-256 хеша ключевых параметров: ID лота, цены, даты торгов, наименования аукционного дома и уровня надежности.
-- По подписи можно мгновенно найти сделку через глобальный поиск или API (`/api/historical?q=HTQ-VF-...`).
+- The fingerprint is derived deterministically from a SHA-256 hash of the key fields: lot ID, price, sale date, auction house name and reliability level. It identifies a record and shows whether it has been altered; it is not proof of authenticity.
+- Any sale can be looked up by its fingerprint through the global search or the API (`/api/historical?q=HTQ-VF-...`).
 
-### 5. Автоматизированный парсер данных (`scripts/fetch_real_data.mjs`)
-Отказоустойчивый конвейер пакетного сбора 1 000+ реальных антикварных лотов:
-- **Livebid.cz:** Сбор официальных каталожных номеров, молотковых цен, комиссий аукционных домов (*Antikvity Praha*, *Graciano*, *OriginalArte*, *Art Invest Group* и др.).
-- **Aukro.cz:** Потоковая выгрузка активных лотов антиквариата через gzip sitemaps с извлечением OpenGraph метаданных, цен и фотографий.
-
----
-
-## Архитектура и стек технологий
-
-- **Фреймворк:** Next.js 16.4 (App Router, Turbopack).
-- **UI:** React 19, адаптивный CSS, Google Font **Montserrat**.
-- **База данных:** SQLite 3 (`db.sqlite3`) через библиотеку `better-sqlite3`.
-- **Настройки производительности SQLite:**
-  - `PRAGMA journal_mode = WAL` (Write-Ahead Logging: параллельное чтение и запись без блокировок).
-  - `PRAGMA synchronous = NORMAL` (ускорение транзакций в 10–50 раз).
-  - `PRAGMA cache_size = -64000` (выделение ~64 МБ памяти под индексирование).
-  - `PRAGMA temp_store = MEMORY` (сортировка и временные таблицы в RAM).
-  - Составные B-Tree индексы по полям `(category, subcategory)`, `maker`, `sale_date DESC`, `price_czk`, `verification_signature`, `status`.
-- **Скорость отклика:** Выборка по 1 000+ записям с фильтрацией выполняется за **~25–36 мс**.
+### 5. Automated Data Collection (`scripts/fetch_real_data.mjs`)
+A fault-tolerant batch pipeline that collects 1,000+ real antique lots:
+- **Livebid.cz:** Official catalogue numbers, hammer prices and auction house commissions (*Antikvity Praha*, *Graciano*, *OriginalArte*, *Art Invest Group* and others).
+- **Aukro.cz:** Streams active antique listings from gzip sitemaps and extracts OpenGraph metadata, prices and photos.
 
 ---
 
-## Структура базы данных (`db.sqlite3`)
+## Architecture & Tech Stack
 
-### Основные таблицы:
-1. **`historical_transactions`** — архив исторических сделок и активных предложений:
+- **Framework:** Next.js 16.4 (App Router, Turbopack).
+- **UI:** React 19, responsive CSS, Google Font **Montserrat**.
+- **Database:** SQLite 3 (`db.sqlite3`) via the `better-sqlite3` library.
+- **SQLite performance settings:**
+  - `PRAGMA journal_mode = WAL` (write-ahead logging: concurrent reads and writes without locking).
+  - `PRAGMA synchronous = NORMAL` (10–50× faster transactions).
+  - `PRAGMA cache_size = -64000` (about 64 MB of memory for index caching).
+  - `PRAGMA temp_store = MEMORY` (sorting and temporary tables kept in RAM).
+  - Composite B-tree indexes on `(category, subcategory)`, `maker`, `sale_date DESC`, `price_czk`, `verification_signature` and `status`.
+- **Response time:** A filtered query over 1,000+ records completes in **about 25–36 ms**.
+
+---
+
+## Database Schema (`db.sqlite3`)
+
+### Main tables
+1. **`historical_transactions`** — archive of past sales and active listings:
    - `id`, `source_id`, `source_name`, `source_type`, `source_url`
    - `title`, `category`, `subcategory`, `maker`, `period`, `condition`
    - `price_czk`, `hammer_price_czk`, `price_type` (`hammer`, `with_premium`, `marketplace`, `asking`)
    - `verification_level` (`verified`, `documented`, `reported`)
-   - `verification_signature` (`HTQ-VF-XXXX-XXXX-XXXX`)
-   - `sale_date`, `city`, `lat`, `lng`, `is_sample` (всегда `0`), `status` (`sold`, `active`)
-2. **`marketplace_lots`** — витрина лотов маркетплейса (предложения и заявки спроса):
+   - `verification_signature` (record fingerprint, `HTQ-VF-XXXX-XXXX-XXXX`)
+   - `sale_date`, `city`, `lat`, `lng`, `is_sample` (always `0`), `status` (`sold`, `active`)
+2. **`marketplace_lots`** — marketplace listings (sell offers and buy requests):
    - `id`, `type` (`offer` / `request`), `title`, `category`, `subcategory`, `maker`, `year`, `city`
    - `seller_or_buyer_name`, `user_type`, `user_email`, `current_bid_or_budget`
    - `ends_in`, `tag`, `description`, `images_json`, `analytics_json`
-3. **`marketplace_interactions`** — история ставок и встречных предложений.
-4. **`users`** — аккаунты пользователей (пароли хешируются через scrypt; в публичной базе таблица пуста).
-5. **`batch_ingest_logs`** — журнал работы парсеров.
+3. **`marketplace_interactions`** — history of bids and counter-offers.
+4. **`users`** — user accounts (passwords hashed with scrypt; the table is empty in the public database).
+5. **`batch_ingest_logs`** — log of scraper runs.
 
 ---
 
-## Структура проекта
+## Project Structure
 
 ```
 antikmapa/
 ├── app/
-│   ├── layout.jsx                  # Корневой макет (шрифт Montserrat, глобальные стили)
-│   ├── page.jsx                    # Главный лендинг (Hero, столпы, специализация)
-│   ├── historical/page.jsx         # Таблица закрытых сделок архива и досье
-│   ├── analysis/page.jsx           # Карта цен Leaflet, фильтры и тренды
-│   ├── marketplace/page.jsx        # Маркетплейс предложений и заявок спроса
-│   ├── marketplace/[id]/page.jsx   # Карточка лота с каруселью и ставками
-│   ├── about/page.jsx              # Методология, provenance данных и подписи
-│   ├── account/page.jsx            # Личный кабинет (публикация предложений и заявок)
-│   ├── admin/page.jsx              # Панель модератора
+│   ├── layout.jsx                  # Root layout (Montserrat font, global styles)
+│   ├── page.jsx                    # Landing page (hero, key pillars, specialisation)
+│   ├── historical/page.jsx         # Archive table of closed sales and dossiers
+│   ├── analysis/page.jsx           # Leaflet price map, filters and trends
+│   ├── marketplace/page.jsx        # Marketplace of offers and buy requests
+│   ├── marketplace/[id]/page.jsx   # Lot page with photo carousel and bids
+│   ├── about/page.jsx              # Methodology, data provenance and fingerprints
+│   ├── account/page.jsx            # User account (publishing offers and requests)
+│   ├── admin/page.jsx              # Moderator panel
 │   └── api/
-│       ├── historical/route.js     # API выборки и добавления сделок
-│       ├── historical/trend/route.js # Быстрый SQL-расчет трендов
-│       ├── marketplace/route.js    # API маркетплейса
-│       ├── marketplace/[id]/route.js # API ставок по конкретному лоту
-│       └── batch/ingest/route.js   # Высокопроизводительный пакетный инжест
+│       ├── historical/route.js     # API for querying and adding sales
+│       ├── historical/trend/route.js # Fast SQL trend calculation
+│       ├── marketplace/route.js    # Marketplace API
+│       ├── marketplace/[id]/route.js # Bids API for a single lot
+│       └── batch/ingest/route.js   # High-throughput batch ingestion
 ├── components/
-│   ├── Navbar.jsx                  # Навигационная панель
-│   ├── MapView.jsx                 # Leaflet-карта с кастомными маркерами и тултипами
-│   └── TrendChart.jsx              # График динамики цен (SVG)
+│   ├── Navbar.jsx                  # Navigation bar
+│   ├── MapView.jsx                 # Leaflet map with custom markers and tooltips
+│   └── TrendChart.jsx              # Price trend chart (SVG)
 ├── lib/
-│   ├── db/index.js                 # Движок SQLite, пул соединений, SQL-запросы, генератор подписей
-│   ├── store.js                    # React Hook (useStore) с синхронизацией с SQLite
-│   ├── records.js                  # Фильтры, форматирование цен, константы категорий
+│   ├── db/index.js                 # SQLite engine, connection handling, SQL queries, fingerprint generator
+│   ├── security.js                 # Read-only guard, password hashing, token checks (server only)
+│   ├── store.js                    # React hook (useStore) synced with SQLite
+│   ├── records.js                  # Filters, price formatting, category constants
 │   └── data/
-│       ├── realRecords.js          # Эталонные архивные записи (Hejtmánek, Zezula)
-│       └── sampleRecords.js        # Заглушка (sample data отключена)
+│       ├── realRecords.js          # Reference archive records (Hejtmánek, Zezula)
+│       └── sampleRecords.js        # Placeholder (sample data disabled)
 ├── scripts/
-│   ├── fetch_real_data.mjs         # Парсер данных Livebid.cz + Aukro.cz
-│   ├── clean_and_enhance_db.mjs    # Скрипт очистки базы, дисперсии и подписей
-│   └── seed_db.mjs                 # Первичная инициализация базы
+│   ├── fetch_real_data.mjs         # Livebid.cz + Aukro.cz scraper
+│   ├── sanitize_for_demo.mjs       # Prepares the database for public deployment
+│   ├── clean_and_enhance_db.mjs    # Database cleanup, dispersion and fingerprints
+│   └── seed_db.mjs                 # Initial database setup
 ├── public/
-│   ├── mainImg.jpg                 # Аутентичное фото для главного экрана (91 КБ)
-│   └── huntiqueLogo.png            # Официальный логотип HUNTIQUE
+│   ├── mainImg.jpg                 # Hero image for the landing page (91 KB)
+│   └── huntiqueLogo.png            # HUNTIQUE logo
 ├── data/
-│   └── scraped_real_antiques.json  # Резервный JSON-кэш спарсенных лотов
-├── start.bat                       # Быстрый запуск Next.js на Windows
-├── stop.bat                        # Быстрая остановка сервера (освобождение порта 3000)
-├── manage.bat                      # Интерактивное меню управления сервером
-└── db.sqlite3                      # Основная база данных SQLite
+│   └── scraped_real_antiques.json  # Local JSON cache of scraped lots (not in the repository)
+├── start.bat                       # Quick start for Next.js on Windows
+├── stop.bat                        # Quick stop (frees port 3000)
+├── manage.bat                      # Interactive server management menu
+└── db.sqlite3                      # Main SQLite database
 ```
 
 ---
 
-## Памятка для будущих AI-агентов (Strict Rules & Guidelines)
+## Guidelines for Future AI Agents (Strict Rules)
 
-Если вы — AI-ассистент, продолжающий разработку этого проекта, **СТРОГО СОБЛЮДАЙТЕ СЛЕДУЮЩИЕ ПРАВИЛА**:
+If you are an AI assistant continuing work on this project, **FOLLOW THESE RULES STRICTLY**:
 
-1. **Никаких эмодзи (Strictly NO Emojis):**
-   - Ни в интерфейсе, ни в кнопках, ни в бейджах, ни в логах.
-   - Вместо эмодзи используйте строгие текстовые обозначения: `[VERIFIED]`, `[DOCUMENTED]`, `[RUMOR]`, `[ARCHIVE]`, `[MARKET]`.
+1. **No emojis:**
+   - Not in the interface, buttons, badges or logs.
+   - Use plain text labels instead: `[VERIFIED]`, `[DOCUMENTED]`, `[RUMOR]`, `[ARCHIVE]`, `[MARKET]`.
 
-2. **Единый шрифт — Montserrat:**
-   - По всему сайту используется шрифт **Montserrat** (`next/font/google`).
-   - Запрещено добавлять или возвращать serif/Times шрифты.
+2. **One font — Montserrat:**
+   - The whole site uses **Montserrat** (`next/font/google`).
+   - Do not add or reintroduce serif or Times fonts.
 
-3. **Цветовая палитра HUNTIQUE:**
-   - Акцентный красный: `#e5252a`.
-   - Глубокий черный: `#000000` / `#18181b`.
-   - Чистый белый: `#ffffff`.
-   - Нейтральные серые: `#71717a`, `#f4f4f5`.
+3. **HUNTIQUE colour palette:**
+   - Accent red: `#e5252a`.
+   - Deep black: `#000000` / `#18181b`.
+   - Pure white: `#ffffff`.
+   - Neutral greys: `#71717a`, `#f4f4f5`.
 
-4. **Прозрачность:**
-   - Это студенческий прототип (курс 4IT529, Competitive Intelligence). Не скрывайте это и не выдавайте демо-данные за проверенные.
-   - Не выдумывайте источники, цены, продажи или «проверенные» записи. Если значения нет, сохраняйте `null`, а не подставляйте значение по умолчанию.
-   - Не используйте реальные персональные данные. Для демо используйте `example.com` и обезличенные имена.
+4. **Transparency:**
+   - This is a student prototype (course 4IT529, Competitive Intelligence). Do not hide this, and do not present demo data as verified.
+   - Do not invent sources, prices, sales or "verified" records. If a value is missing, store `null` rather than a default.
+   - Do not use real personal data. For demo content, use `example.com` addresses and anonymised names.
 
-5. **Тематический фокус — только мебель и посуда/стекло/фарфор:**
-   - В проекте **ПОЛНОСТЬЮ ОТСУТСТВУЕТ** категория часов (`horology`, `Rolex`). Она была удалена по прямому требованию заказчика.
-   - Допустимые категории:
-     - `furniture` (кресла, стулья Thonet/Kohn, комоды, столы, шкафы, модерн Halabala, бидермайер).
-     - `tableware` (богемское стекло Moser, фарфор Pirkenhammer/Thun/Meissen, серебро, керамика).
+5. **Scope — furniture and tableware (glass, porcelain) only:**
+   - The clocks and watches category (`horology`, `Rolex`) has been **removed entirely** at the client's explicit request.
+   - Allowed categories:
+     - `furniture` (armchairs, Thonet/Kohn chairs, chests of drawers, tables, cabinets, Halabala modernism, Biedermeier).
+     - `tableware` (Bohemian Moser glass, Pirkenhammer/Thun/Meissen porcelain, silver, ceramics).
 
-6. **Разделение Исторического архива и Маркетплейса:**
-   - На странице `/historical` отображаются **ТОЛЬКО закрытые сделки** (`status = 'sold'`). Активные лоты на продажу в архив попадать не должны!
-   - Активные лоты отображаются в Маркетплейсе (`/marketplace`) и на Карте цен (`/analysis`) при включенном фильтре `Active` или `All`.
+6. **Keep the archive and the marketplace separate:**
+   - The `/historical` page shows **ONLY closed sales** (`status = 'sold'`). Active listings must never appear in the archive.
+   - Active listings appear in the marketplace (`/marketplace`) and on the price map (`/analysis`) when the `Active` or `All` filter is selected.
 
-7. **Географическое распределение (2D Disk Dispersion):**
-   - Точки на карте **не должны выстраиваться в линии** или накладываться в одну точку.
-   - Используйте формулу равномерного распределения по диску ($r = R \sqrt{u}, \theta = 2\pi v$) от центров городов (Прага, Брно, Пльзень, Карловы Вары, Либерец, Оломоуц).
+7. **Geographic distribution (2D disk dispersion):**
+   - Map points **must not line up** or stack on a single spot.
+   - Use uniform disk sampling ($r = R \sqrt{u}, \theta = 2\pi v$) around the city centres (Prague, Brno, Plzeň, Karlovy Vary, Liberec, Olomouc).
 
-8. **Чистые URL первоисточников:**
-   - Запрещено генерировать ссылки на несуществующие домены вроде `https://huntique.local/...`.
-   - Если внешней ссылки нет (например, закрытая инсайдерская сделка), поле `source_url` должно быть `null`, а в интерфейсе выводится просто название источника текстом без тега `<a>`.
+8. **Clean source URLs:**
+   - Never generate links to non-existent domains such as `https://huntique.local/...`.
+   - If there is no external link (for example, a private off-market sale), set `source_url` to `null` and show the source name as plain text, without an `<a>` tag.
 
 ---
 
-## Демо-режим и безопасность
+## Demo Mode & Security
 
-- **Публичный деплой работает только на чтение.** Если переменная `HUNTIQUE_ALLOW_WRITES` не равна `true`, база открывается read-only, а все POST/DELETE-маршруты (`/api/auth`, `/api/historical`, `/api/marketplace`, `/api/batch/ingest`) возвращают 403. Изменения посетителя (новые лоты, ставки, «модерация») сохраняются только в localStorage его браузера.
-- **Вход:** кнопки «Demo user» и «Demo moderator» создают сессию только в браузере. Пароли никуда не отправляются. Локально (с `HUNTIQUE_ALLOW_WRITES=true`) работают настоящие аккаунты: пароли хешируются через scrypt, автоматической регистрации нет, роль admin выдаётся только адресам из `HUNTIQUE_ADMIN_EMAILS`.
-- **Пакетный импорт** `/api/batch/ingest` требует заголовок `Authorization: Bearer $HUNTIQUE_INGEST_TOKEN`.
-- **API-ключей нет.** Секреты хранятся только в `.env.local` (игнорируется git) или в настройках хостинга. Образец: `.env.example`.
-- **Подготовка базы к публикации:** `node scripts/sanitize_for_demo.mjs`. Скрипт делает резервную копию в `backups/`, удаляет аккаунты, выдуманные записи, лоты без ставок и часы, обезличивает маркетплейс и сливает WAL в один файл `db.sqlite3`.
+- **The public deployment is read-only.** Unless `HUNTIQUE_ALLOW_WRITES` is set to `true`, the database is opened read-only and every POST/DELETE route (`/api/auth`, `/api/historical`, `/api/marketplace`, `/api/batch/ingest`) returns 403. Visitor changes (new listings, bids, moderation) are saved only in their browser's localStorage.
+- **Sign-in:** The "Demo user" and "Demo moderator" buttons create a session in the browser only, and no passwords are sent anywhere. Locally (with `HUNTIQUE_ALLOW_WRITES=true`), real accounts work: passwords are hashed with scrypt, there is no automatic registration, and the admin role is granted only to addresses listed in `HUNTIQUE_ADMIN_EMAILS`.
+- **Batch import** via `/api/batch/ingest` requires the header `Authorization: Bearer $HUNTIQUE_INGEST_TOKEN`.
+- **No API keys are used.** Secrets belong only in `.env.local` (ignored by git) or in the hosting settings. See `.env.example` for a template.
+- **Preparing the database for publication:** `node scripts/sanitize_for_demo.mjs`. The script backs up the database to `backups/`, removes accounts, invented records, lots without bids and clocks, anonymises the marketplace, and merges the WAL into a single `db.sqlite3` file.
 
-### Деплой на Vercel
-1. Запустите `node scripts/sanitize_for_demo.mjs` и `npm run build` (проверка).
-2. Загрузите проект на GitHub (`db.sqlite3` включается, `backups/`, `.env*` и WAL-файлы — нет) и импортируйте его в Vercel.
-3. **Не** задавайте `HUNTIQUE_ALLOW_WRITES` на Vercel. Файл `db.sqlite3` включается в серверный бандл через `outputFileTracingIncludes` в `next.config.mjs`.
+### Deploying to Vercel
+1. Run `node scripts/sanitize_for_demo.mjs`, then `npm run build` as a check.
+2. Push the project to GitHub (`db.sqlite3` is included; `backups/`, `.env*` and WAL files are not) and import it into Vercel, or deploy from this folder with `npx.cmd vercel deploy --prod`.
+3. Do **not** set `HUNTIQUE_ALLOW_WRITES` on Vercel. `db.sqlite3` is bundled with the server functions via `outputFileTracingIncludes` in `next.config.mjs`.
 
-## Известные ограничения данных
-- 63 подтверждённые продажи, почти все за 2024 год. Тренд по годам носит иллюстративный характер.
-- Местоположение приблизительное (см. выше). Курс EUR→CZK фиксирован: 25,2.
-- Для 415 записей мастер не указан (`Unattributed`). Часть лотов Livebid — графика и живопись, а не мебель и посуда.
-- 10 лотов маркетплейса и их аналитика — демонстрационные данные.
+## Known Data Limitations
+- 63 confirmed sales, almost all from 2024, so the year-by-year trend is illustrative only.
+- Locations are approximate (see above). The EUR→CZK rate is fixed at 25.2.
+- 415 records have no identified maker (`Unattributed`). Some Livebid lots are prints and paintings rather than furniture or tableware.
+- The 10 demo marketplace listings and their analytics are illustrative data.
 
-## Запуск и управление
+## Running & Managing the App
 
-### Скрипты Windows:
-- **`start.bat`** — запускает сервер Next.js и открывает браузер.
-- **`stop.bat`** — останавливает процесс Node.js и освобождает порт 3000.
-- **`manage.bat`** — интерактивное консольное меню (Start / Stop / Restart / Status).
+### Windows scripts
+- **`start.bat`** — starts the Next.js server and opens the browser.
+- **`stop.bat`** — stops the Node.js process and frees port 3000.
+- **`manage.bat`** — interactive console menu (Start / Stop / Restart / Status).
 
-### Через терминал:
+### From the terminal
 ```bash
-# Установка зависимостей
+# Install dependencies
 npm install
 
-# Запуск dev-сервера
+# Start the dev server
 npm run dev
 
-# Остановка сервера на порту 3000
+# Stop the server on port 3000
 npm run stop
 
-# Запуск парсера реальных данных
+# Run the real-data scraper
 node scripts/fetch_real_data.mjs
 
-# Запуск скрипта очистки базы и обновления подписей
+# Run the database cleanup and fingerprint update script
 node scripts/clean_and_enhance_db.mjs
 ```

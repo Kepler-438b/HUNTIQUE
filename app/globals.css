@@ -81,7 +81,7 @@ label { display: block; font-size: 12px; font-weight: 600; color: var(--ink-seco
   height: 42px;
   width: 42px;
   object-fit: cover;
-  border-radius: 10px; /* немного закруглить наше лого */
+  border-radius: 10px; /* slightly round the logo corners */
   display: inline-block;
   vertical-align: middle;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -103,7 +103,7 @@ label { display: block; font-size: 12px; font-weight: 600; color: var(--ink-seco
   align-items: center;
   justify-content: center;
   padding: 8px 18px;
-  border-radius: 9999px; /* интерактивные овальные кнопки */
+  border-radius: 9999px; /* pill-shaped interactive buttons */
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.4px;
@@ -257,7 +257,7 @@ label { display: block; font-size: 12px; font-weight: 600; color: var(--ink-seco
   background: rgba(14, 15, 20, 0.76);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1.5px solid #ffffff; /* аккуратная обводка белого цвета */
+  border: 1.5px solid #ffffff; /* thin white outline */
   border-radius: 20px;
   padding: 48px 40px;
   box-shadow: 
@@ -296,7 +296,7 @@ label { display: block; font-size: 12px; font-weight: 600; color: var(--ink-seco
   margin: 0 0 20px;
   font-weight: 900;
   text-transform: uppercase;
-  color: #ffffff; /* весь текст абсолютно четкий и видимый */
+  color: #ffffff; /* keep all text crisp and legible */
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9);
 }
 .brand-accent {
@@ -306,7 +306,7 @@ label { display: block; font-size: 12px; font-weight: 600; color: var(--ink-seco
 .hero-subtitle {
   font-size: 17px;
   line-height: 1.6;
-  color: #f1f5f9; /* четкий светлый контраст */
+  color: #f1f5f9; /* clear light-on-dark contrast */
   max-width: 780px;
   margin: 0 auto 36px;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
@@ -320,7 +320,7 @@ label { display: block; font-size: 12px; font-weight: 600; color: var(--ink-seco
 }
 .btn-large {
   padding: 14px 28px;
-  border-radius: 9999px; /* овальные интерактивные кнопки */
+  border-radius: 9999px; /* pill-shaped interactive buttons */
   font-size: 13.5px;
   font-weight: 800;
   display: inline-flex;
@@ -381,8 +381,8 @@ label { display: block; font-size: 12px; font-weight: 600; color: var(--ink-seco
   gap: 28px;
   background: rgba(20, 21, 28, 0.85);
   padding: 16px 36px;
-  border-radius: 9999px; /* овальный блок */
-  border: 1px solid rgba(255, 255, 255, 0.4); /* аккуратная белая обводка */
+  border-radius: 9999px; /* pill-shaped container */
+  border: 1px solid rgba(255, 255, 255, 0.4); /* thin white outline */
   backdrop-filter: blur(10px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   margin-top: 10px;

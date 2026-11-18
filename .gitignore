@@ -9,3 +9,5 @@ db.sqlite3-shm
 backups/
 .claude/
 data/scraped_real_antiques.json
+
+.vercel
