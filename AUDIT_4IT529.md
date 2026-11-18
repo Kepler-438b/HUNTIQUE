@@ -154,3 +154,32 @@ Scope of evidence: the `antikmapa` folder (Next.js source, `db.sqlite3`, scripts
 
 Backup of the original DB: `backups/db-before-sanitize-*.sqlite3` (gitignored).
 **Deployed (18 Nov 2026): https://antikmapa.vercel.app** (read-only; all write endpoints return 403). D1 is done; D2 is still open: add the URL to the team sheet and the report. Remaining data limits: 63 sales, mostly from 2024, and some out-of-scope Livebid items (prints, paintings, documents).
+
+## 7. Status update (18 Nov 2026, evening)
+
+Searched: this repository, the Desktop folder and Downloads. No report, presentation, KIT/KIQ, PESTEL, Porter or competitor-matrix document exists. The only XML file in Downloads is a game save, not project material.
+
+### Done (verified)
+| Requirement | Evidence |
+|---|---|
+| D1 Prototype public | https://antikmapa.vercel.app (read-only demo; writes return 403) |
+| F4 Repository | https://github.com/Kepler-438b/HUNTIQUE (public, no secrets/backups) |
+| D4/D5 Tools & data sources documented | README.md, docs/DATA_SOURCES.md |
+| D7/D8/D9 Security, personal data | Hashed passwords, no accounts, demo identities, no API keys |
+| D3 Real data behind the CI questions | 1,202 real Czech auction lots (800 sold 2023–2026, 33 houses, 200 current, 199 unsold); verified house addresses |
+
+### Still missing (all mandatory, deadline 19 Nov 2026 09:00)
+1. **Report PDF ≤ 8 NS (~14,400 characters)** with exactly these sections: (1) KIT & KIQ, audience, decisions; (2) PESTEL & Porter; (3) competitor matrix & market gap; (4) prototype: functions, architecture, tools, external data, URL; (5) who did what; (6) AI declaration.
+2. **KIT + 3–5 KIQs** — must also be entered in the team sheet in MS Teams.
+3. **PESTEL** (6 factors) and **Porter's Five Forces** (5 forces).
+4. **Competitor matrix ≥ 5 solutions** (functions, price, target group, weaknesses) + **market gap derived from it**. Candidates: Livebid.cz, Aukro.cz, Artprice / Artnet price databases, Barnebys, Invaluable / LiveAuctioneers, MutualArt, individual Czech auction-house archives.
+5. **Team task split** (5 names) and **AI declaration**.
+6. **Presentation**.
+7. **MS Teams admin** (cannot be verified from here): team registered in the 4IT529_CI_ZS2026 sheet, private channel "TEAMx + name", instructor invited, prototype URL + KIT/KIQ in the team sheet.
+8. **Moodle submission** by one member: PDF + presentation + prototype URL + repository URL.
+
+### Open decisions / consistency points for the report
+- The marketplace still shows 413 Aukro listings from the earlier collection (Aukro's robots.txt disallows Anthropic's crawler; the team should decide whether to keep them).
+- The landing page still advertises "verified collectors" and "ready demand"; the marketplace offers and requests are demo data — describe them as a concept/demo in the report.
+- The site notice says lots are placed at the auction house's *city*; they are now at the house's *address* (still true, less precise).
+- Report figures must match docs/DATA_SOURCES.md (803 sold incl. 3 manual, 200 current, 199 unsold, 33 houses).
