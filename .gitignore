@@ -11,3 +11,4 @@ backups/
 data/scraped_real_antiques.json
 
 .vercel
+data/raw/

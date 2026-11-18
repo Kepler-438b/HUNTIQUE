@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import {
   baseRecords, filterRecords, computeTrend, formatCzk,
   PRICE_TYPE_LABEL, VERIFICATION_LABEL, VERIFICATION_COLOR, SUBCATEGORIES,
+  STATUS_LABEL, STATUS_COLOR, CATEGORY_LABEL, statusOf,
 } from "@/lib/records";
 import { useStore } from "@/lib/store";
 import TrendChart from "@/components/TrendChart";
@@ -20,7 +21,7 @@ const DEFAULT_FILTERS = {
   yearTo: "",
   priceMin: "",
   priceMax: "",
-  priceTypes: ["hammer", "with_premium", "marketplace", "asking"],
+  priceTypes: ["hammer", "with_premium", "marketplace", "asking", "starting", "current_bid"],
   levels: ["verified", "documented", "reported"],
   dataset: "all",
 };
@@ -73,27 +74,16 @@ export default function PriceMapPage() {
         <div className="status-filter-box">
           <label className="filter-headline">Status / Availability</label>
           <div className="status-toggle-row">
-            <button
-              type="button"
-              className={`status-toggle-btn ${filters.status === "all" ? "active" : ""}`}
-              onClick={() => set("status", "all")}
-            >
-              All
-            </button>
-            <button
-              type="button"
-              className={`status-toggle-btn ${filters.status === "active" ? "active" : ""}`}
-              onClick={() => set("status", "active")}
-            >
-              Active
-            </button>
-            <button
-              type="button"
-              className={`status-toggle-btn ${filters.status === "sold" ? "active" : ""}`}
-              onClick={() => set("status", "sold")}
-            >
-              Sold
-            </button>
+            {[["all", "All"], ["sold", "Sold"], ["active", "Current"], ["unsold", "Unsold"]].map(([value, label]) => (
+              <button
+                key={value}
+                type="button"
+                className={`status-toggle-btn ${filters.status === value ? "active" : ""}`}
+                onClick={() => set("status", value)}
+              >
+                {label}
+              </button>
+            ))}
           </div>
         </div>
 
@@ -102,14 +92,15 @@ export default function PriceMapPage() {
         <label>Category</label>
         <select value={filters.category} onChange={(e) => setFilters((f) => ({ ...f, category: e.target.value, subcategory: "", maker: "" }))}>
           <option value="">All</option>
-          <option value="furniture">Furniture</option>
-          <option value="tableware">Tableware</option>
+          {Object.entries(CATEGORY_LABEL).map(([value, label]) => (
+            <option key={value} value={value}>{label}</option>
+          ))}
         </select>
 
         <label>Type</label>
         <select value={filters.subcategory} onChange={(e) => setFilters((f) => ({ ...f, subcategory: e.target.value, maker: "" }))}>
           <option value="">All</option>
-          {(filters.category ? SUBCATEGORIES[filters.category] : [...SUBCATEGORIES.furniture, ...SUBCATEGORIES.tableware]).map((s) => (
+          {(filters.category ? SUBCATEGORIES[filters.category] : Object.values(SUBCATEGORIES).flat()).map((s) => (
             <option key={s} value={s}>{s}</option>
           ))}
         </select>
@@ -120,7 +111,7 @@ export default function PriceMapPage() {
           {makers.map((m) => <option key={m} value={m}>{m}</option>)}
         </select>
 
-        <label>Year of sale</label>
+        <label>Year of auction</label>
         <div className="row2">
           <input placeholder="from" value={filters.yearFrom} onChange={(e) => set("yearFrom", e.target.value)} />
           <input placeholder="to" value={filters.yearTo} onChange={(e) => set("yearTo", e.target.value)} />
@@ -136,7 +127,7 @@ export default function PriceMapPage() {
         <div className="chips">
           {Object.keys(PRICE_TYPE_LABEL).map((t) => (
             <button key={t} className={`chip ${filters.priceTypes.includes(t) ? "on" : ""}`} onClick={() => set("priceTypes", toggle(filters.priceTypes, t))}>
-              {{ hammer: "Hammer", with_premium: "With premium", marketplace: "Agreed sale", asking: "Asking" }[t]}
+              {{ hammer: "Hammer", with_premium: "With premium", marketplace: "Agreed sale", asking: "Asking", starting: "Starting", current_bid: "Current bid" }[t]}
             </button>
           ))}
         </div>
@@ -152,7 +143,7 @@ export default function PriceMapPage() {
         </div>
 
         <p className="count">
-          {visible.length} items shown across Czech Republic
+          {visible.length} lots match · {visible.filter((r) => r.lat != null).length} on the map
         </p>
         <button className="btn secondary" onClick={() => setFilters(DEFAULT_FILTERS)}>Reset filters</button>
       </aside>
@@ -160,10 +151,10 @@ export default function PriceMapPage() {
       <section className="map-wrap">
         <MapView records={visible} selectedId={selected?.id} onSelect={setSelected} />
         <div className="legend">
-          <div><span className="dot" style={{ background: "#e5252a" }} />Active Listing (Asking Price)</div>
-          <div><span className="dot" style={{ background: VERIFICATION_COLOR.verified }} />Verified Past Sale</div>
-          <div><span className="dot" style={{ background: VERIFICATION_COLOR.documented }} />Documented Auction Sale</div>
-          <div className="muted" style={{ marginTop: 4 }}>100% real Czech antique market data</div>
+          {Object.entries(STATUS_LABEL).map(([k, label]) => (
+            <div key={k}><span className="dot" style={{ background: STATUS_COLOR[k] }} />{label}</div>
+          ))}
+          <div className="muted" style={{ marginTop: 4 }}>Real lots from Czech auction houses (Livebid.cz)</div>
         </div>
       </section>
 
@@ -172,11 +163,13 @@ export default function PriceMapPage() {
           <>
             <h2>Click a dot on the map</h2>
             <p className="muted">
-              Each dot represents an antique transaction or active offering. Click it to inspect item details, realized or asking price,
-              source provenance, and record fingerprint.
+              Each dot is a real lot from a Czech auction house: a completed sale, a lot that did not sell, or an auction that is
+              still running. Click a dot to see the price, auction, date and a link to the original listing.
             </p>
             <div className="note">
-              <strong>Location is approximate.</strong> The sources do not publish where an item is located, so each record is assigned to a city algorithmically to make the map readable. Use the map to compare prices and categories, not exact geography.
+              <strong>Location = auction house city.</strong> Each lot is placed at the city of the auction house that sold it
+              (from the house's public address). Lots of the same house are fanned out around that point so they stay clickable;
+              this is not the item's own location.
             </div>
           </>
         ) : (
@@ -188,64 +181,60 @@ export default function PriceMapPage() {
 }
 
 function RecordDetail({ record: r, trend }) {
-  const isActive = r.status === "active" || r.price_type === "asking";
+  const status = statusOf(r);
+  const priceLabel = { sold: "Hammer price", active: "Current price", unsold: "Starting price" }[status];
   return (
     <>
       <div className="card">
         <div style={{ display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
-          {isActive ? (
-            <span className="tag" style={{ background: "#e5252a", color: "#fff", fontWeight: 700 }}>
-              Active for Sale
-            </span>
-          ) : (
-            <span className="tag real">Documented Past Sale</span>
-          )}
-          <span className="tag" style={{ background: VERIFICATION_COLOR[r.verification_level] || "#2f62b5" }}>
-            {VERIFICATION_LABEL[r.verification_level] || "Verified"}
+          <span className="tag" style={{ background: STATUS_COLOR[status], color: "#fff", fontWeight: 700 }}>
+            {STATUS_LABEL[status]}
           </span>
-          {r.verification_signature && (
-            <code style={{
-              fontSize: 10,
-              fontWeight: 700,
-              background: "#000",
-              color: "#fff",
-              padding: "2px 6px",
-              borderRadius: 3,
-              fontFamily: "monospace"
-            }}>
-              {r.verification_signature}
-            </code>
-          )}
+          <span className="tag" style={{ background: VERIFICATION_COLOR[r.verification_level] || "#2f62b5" }}>
+            {VERIFICATION_LABEL[r.verification_level] || "Documented"}
+          </span>
         </div>
+        {r.image_url && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={r.image_url}
+            alt={r.title}
+            loading="lazy"
+            style={{ width: "100%", maxHeight: 220, objectFit: "contain", background: "#f4f4f5", borderRadius: 6, marginTop: 10 }}
+          />
+        )}
         <h2 style={{ marginTop: 8 }}>{r.title}</h2>
         <div className="price">{formatCzk(r.price_czk)}</div>
-        <div className="muted small">{PRICE_TYPE_LABEL[r.price_type]}</div>
-        {r.hammer_price_czk && <div className="muted small">Hammer price: {formatCzk(r.hammer_price_czk)}</div>}
+        <div className="muted small">
+          {priceLabel} · {PRICE_TYPE_LABEL[r.price_type] || r.price_type}
+          {r.currency && r.currency !== "CZK" && r.original_amount ? ` · originally ${r.original_amount} ${r.currency}` : ""}
+        </div>
+        {r.description && <p className="small" style={{ lineHeight: 1.5 }}>{r.description}</p>}
         <dl className="kv">
-          {r.verification_signature && (
-            <>
-              <dt>Verification Signature</dt>
-              <dd>
-                <code style={{ fontFamily: "monospace", fontWeight: 700 }}>
-                  {r.verification_signature}
-                </code>
-              </dd>
-            </>
-          )}
-          <dt>Category</dt><dd>{r.category} · {r.subcategory}</dd>
-          <dt>Maker</dt><dd>{r.maker}</dd>
+          <dt>Category</dt><dd>{CATEGORY_LABEL[r.category] || r.category} · {r.subcategory}</dd>
+          {r.source_category && (<><dt>Source category</dt><dd>{r.source_category}</dd></>)}
+          <dt>Maker / author</dt><dd>{r.maker}</dd>
           <dt>Period</dt><dd>{r.period}</dd>
           {r.condition && (<><dt>Condition</dt><dd>{r.condition}</dd></>)}
-          <dt>Sale date</dt><dd>{r.sale_date}</dd>
-          <dt>Place</dt><dd>{r.city} {r.location_precision === "city" ? "(city level)" : ""}</dd>
-          <dt>Source</dt>
+          <dt>{status === "sold" ? "Sale date" : "Auction date"}</dt><dd>{r.sale_date || "Unknown"}</dd>
+          {r.auction_name && (<><dt>Auction</dt><dd>{r.auction_name}</dd></>)}
+          <dt>Auction house</dt>
           <dd>
-            {r.source_url && !r.source_url.includes("huntique.local") && !r.source_url.includes(".local") ? (
+            {r.source_url ? (
               <a href={r.source_url} target="_blank" rel="noreferrer" style={{ fontWeight: 600 }}>{r.source_name} ↗</a>
             ) : (
               r.source_name
             )}
           </dd>
+          <dt>Location</dt>
+          <dd>{r.city || "Unknown"}{r.location_precision === "auction_house_city" ? " (auction house city)" : ""}</dd>
+          {r.bids_count > 0 && (<><dt>Bids</dt><dd>{r.bids_count}</dd></>)}
+          {r.verification_signature && (
+            <>
+              <dt>Record fingerprint</dt>
+              <dd><code style={{ fontFamily: "monospace", fontWeight: 700 }}>{r.verification_signature}</code></dd>
+            </>
+          )}
         </dl>
         {r.note && <div className="note">{r.note}</div>}
       </div>

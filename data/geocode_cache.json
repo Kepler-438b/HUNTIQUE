@@ -1,0 +1,159 @@
+{
+  "36020|Karlovy Vary": {
+    "lat": 50.2306646,
+    "lng": 12.8825132,
+    "label": "Karlovy Vary",
+    "query": "36020 Karlovy Vary Czechia"
+  },
+  "73532|Rychvald": {
+    "lat": 49.8588093,
+    "lng": 18.3787906,
+    "label": "Rychvald",
+    "query": "73532 Rychvald Czechia"
+  },
+  "46001|Liberec": {
+    "lat": 50.7793815,
+    "lng": 15.0403936,
+    "label": "Liberec",
+    "query": "46001 Liberec Czechia"
+  },
+  "10000|Praha 1": {
+    "lat": 50.07792,
+    "lng": 14.4183995,
+    "label": "Praha 1",
+    "query": "10000 Praha 1 Czechia"
+  },
+  "70200|Ostrava": {
+    "lat": 49.8407665,
+    "lng": 18.2786426,
+    "label": "Ostrava",
+    "query": "70200 Ostrava Czechia"
+  },
+  "11800|Praha": {
+    "lat": 50.0875655,
+    "lng": 14.4020761,
+    "label": "Praha",
+    "query": "11800 Praha Czechia"
+  },
+  "60200|Brno": {
+    "lat": 49.1988523,
+    "lng": 16.6022605,
+    "label": "Brno",
+    "query": "60200 Brno Czechia"
+  },
+  "60200|": {
+    "lat": 49.1988628,
+    "lng": 16.6022498,
+    "label": "Brno",
+    "query": "60200 Czechia",
+    "note": "label from postcode 60200 (Brno)"
+  },
+  "11000|Praha 1": {
+    "lat": 50.0852125,
+    "lng": 14.422916,
+    "label": "Praha 1",
+    "query": "11000 Praha 1 Czechia"
+  },
+  "12000|Praha": {
+    "lat": 50.0746607,
+    "lng": 14.4341926,
+    "label": "Praha",
+    "query": "12000 Praha Czechia"
+  },
+  "11000|Praha": {
+    "lat": 50.0851995,
+    "lng": 14.4228918,
+    "label": "Praha",
+    "query": "11000 Praha Czechia"
+  },
+  "28601|Čáslav": {
+    "lat": 49.8887507,
+    "lng": 15.3853462,
+    "label": "Čáslav",
+    "query": "28601 Čáslav Czechia"
+  },
+  "11800|Praha 1": {
+    "lat": 50.0875655,
+    "lng": 14.4020761,
+    "label": "Praha 1",
+    "query": "11800 Praha 1 Czechia"
+  },
+  "10100|Praha 10": {
+    "lat": 50.0682309,
+    "lng": 14.4581879,
+    "label": "Praha 10",
+    "query": "10100 Praha 10 Czechia"
+  },
+  "15000|Praha 5": {
+    "lat": 50.068385,
+    "lng": 14.3857411,
+    "label": "Praha 5",
+    "query": "15000 Praha 5 Czechia"
+  },
+  "47301|Nový Bor": {
+    "lat": 50.7567744,
+    "lng": 14.5557778,
+    "label": "Nový Bor",
+    "query": "47301 Nový Bor Czechia"
+  },
+  "60300|Brno": {
+    "lat": 49.190338,
+    "lng": 16.5880243,
+    "label": "Brno",
+    "query": "60300 Brno Czechia"
+  },
+  "15500|Praha 5 – Řeporyje": {
+    "lat": 50.0382647,
+    "lng": 14.311559,
+    "label": "Praha 5 – Řeporyje",
+    "query": "Praha 5 – Řeporyje Czechia"
+  },
+  "38801|Blatná": {
+    "lat": 49.4257915,
+    "lng": 13.8902549,
+    "label": "Blatná",
+    "query": "38801 Blatná Czechia"
+  },
+  "14000|Praha 4": {
+    "lat": 50.0496324,
+    "lng": 14.4424828,
+    "label": "Praha 4",
+    "query": "14000 Praha 4 Czechia"
+  },
+  "68603|Staré Město": {
+    "lat": 49.0768393,
+    "lng": 17.4398923,
+    "label": "Staré Město",
+    "query": "68603 Staré Město Czechia"
+  },
+  "53002|Pardubice": {
+    "lat": 50.018755,
+    "lng": 15.7826599,
+    "label": "Pardubice",
+    "query": "53002 Pardubice Czechia"
+  },
+  "63900|Brno": {
+    "lat": 49.1807899,
+    "lng": 16.5929021,
+    "label": "Brno",
+    "query": "63900 Brno Czechia"
+  },
+  "39165|Bechyně": {
+    "lat": 49.3063108,
+    "lng": 14.4801786,
+    "label": "Bechyně",
+    "query": "39165 Bechyně Czechia"
+  },
+  "12000|Praha 2": {
+    "lat": 50.0746617,
+    "lng": 14.434192,
+    "label": "Praha 2",
+    "query": "12000 Praha 2 Czechia"
+  },
+  "16000|Praha 6 - Bubeneč": {
+    "lat": 50.1049153,
+    "lng": 14.3809539,
+    "label": "Praha 6",
+    "query": "16000 Praha 6 Czechia"
+  }
+}

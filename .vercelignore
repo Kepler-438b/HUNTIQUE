@@ -11,3 +11,4 @@ db.sqlite3-shm
 /mainImg1.jpg
 /*.bat
 data/scraped_real_antiques.json
+data/raw

@@ -108,8 +108,10 @@ export default function HistoricalPage() {
         <div>
           <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
             <option value="all">All Categories</option>
-            <option value="furniture">Furniture</option>
-            <option value="tableware">Tableware &amp; Glass</option>
+            <option value="furniture">Furniture &amp; carpets</option>
+            <option value="tableware">Porcelain, glass, ceramics &amp; silver</option>
+            <option value="fine_art">Paintings, graphics &amp; sculpture</option>
+            <option value="decorative">Decorative &amp; applied art</option>
           </select>
         </div>
         <div>

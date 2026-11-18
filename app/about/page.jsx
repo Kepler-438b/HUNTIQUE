@@ -68,7 +68,20 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <h2>Primary Auction Sources ({realRecords.length} Documented Lots)</h2>
+      <h2>Auction Data from Livebid.cz</h2>
+      <p style={{ lineHeight: 1.6 }}>
+        The archive and the price map contain about 1,200 real lots from 33 Czech auction houses, collected from the public
+        Livebid.cz API on 18 November 2026: 800 completed sales (hammer prices, January 2023 to November 2026), 200 lots in
+        current auctions and 199 lots that did not sell. Every record links to its original lot page. EUR prices are converted
+        with the official Czech National Bank rate of the auction date. Hammer prices do not include the buyer&apos;s premium.
+        Full method and limitations:{" "}
+        <a href="https://github.com/Kepler-438b/HUNTIQUE/blob/main/docs/DATA_SOURCES.md" target="_blank" rel="noreferrer">
+          docs/DATA_SOURCES.md
+        </a>
+        .
+      </p>
+
+      <h2>Manually Verified Sources ({realRecords.length} Lots)</h2>
       <p style={{ lineHeight: 1.6 }}>
         Realized prices in the archive are referenced directly against primary publication records from verified auction institutions:
       </p>
@@ -105,7 +118,7 @@ export default function AboutPage() {
 
       <h2>Location Accuracy &amp; Privacy</h2>
       <p style={{ lineHeight: 1.6 }}>
-        Livebid.cz and Aukro.cz do not publish where an item is located. Map positions are therefore <strong>approximate</strong>: each record is assigned to a Czech city algorithmically and scattered within a small radius so the points stay readable. Treat the map as a view of prices and categories, not of real locations. The prototype holds no personal data. Seller names are not shown, and the marketplace listings are labelled demo data.
+        Map positions show the <strong>city of the auction house</strong> that offered the lot, taken from the house&apos;s public address on Livebid.cz and geocoded with OpenStreetMap. The item itself may be stored elsewhere. Lots of the same house are fanned out around that point on screen only, so they stay clickable. The prototype holds no personal data. Seller names are not shown, and the marketplace listings are labelled demo data.
       </p>
     </main>
   );

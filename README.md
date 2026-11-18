@@ -17,11 +17,9 @@ A register of completed antique sales in the Czech Republic.
 
 ### 2. Price Map & Analytics (`/analysis`)
 An interactive Leaflet map of the Czech Republic showing where sales and prices are distributed.
-- **View modes:**
-  - **All:** Shows both closed archive sales and active listings.
-  - **Active:** 413 current Aukro listings shown as red markers (`#e5252a`), with asking prices and links to each listing.
-  - **Sold:** 63 closed auction sales with a recorded result (Livebid.cz plus Hejtmánek and Zezula). Lots that received no bids are not counted as sales.
-- **Approximate location (2D disk dispersion):** The sources do not publish where an item is located, so each record is assigned a city algorithmically (`location_precision = approximate`), and the interface says so. Points are spread across Prague (Prague 1, 2, 5, 6, Vinohrady, Smíchov), Brno, Plzeň, Karlovy Vary, Liberec and Olomouc without overlaps, lines or clustered bands, so markers stay easy to read and click.
+- **View modes:** All · **Sold** (completed auctions, hammer price) · **Current** (auctions still running: current bid or starting price) · **Unsold** (lots that ended without a sale, starting price). Each status has its own colour.
+- **Real data:** Every point is a real lot from a Czech auction house, collected from Livebid.cz, with a link to the original listing. See [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md) for counts, methods and limitations.
+- **Location = auction house city:** Each lot is placed at the city of the auction house that offered it (from the house's public address, geocoded with OpenStreetMap; `location_precision = auction_house_city`). Lots that share a location are fanned out on screen only, so they stay clickable; the stored coordinates are not changed.
 - **Price trend chart:** An interactive curve of median prices by year for a given maker and item type (for example, Thonet chairs or Moser glass).
 
 ### 3. Offers & Buy Requests Marketplace (`/marketplace`)
@@ -36,10 +34,11 @@ $$\text{HTQ-VF-XXXX-XXXX-XXXX}$$
 - The fingerprint is derived deterministically from a SHA-256 hash of the key fields: lot ID, price, sale date, auction house name and reliability level. It identifies a record and shows whether it has been altered; it is not proof of authenticity.
 - Any sale can be looked up by its fingerprint through the global search or the API (`/api/historical?q=HTQ-VF-...`).
 
-### 5. Automated Data Collection (`scripts/fetch_real_data.mjs`)
-A fault-tolerant batch pipeline that collects 1,000+ real antique lots:
-- **Livebid.cz:** Official catalogue numbers, hammer prices and auction house commissions (*Antikvity Praha*, *Graciano*, *OriginalArte*, *Art Invest Group* and others).
-- **Aukro.cz:** Streams active antique listings from gzip sitemaps and extracts OpenGraph metadata, prices and photos.
+### 5. Data Collection Pipeline
+1. `node scripts/collect_livebid.mjs` collects completed, unsold and current lots from Czech auction houses via the public Livebid.cz API (polite rate limit, cached raw responses), converts EUR with the official ČNB rate and geocodes auction-house cities. Output: `data/livebid_dataset.json` and `data/collection_report.json`.
+2. `node scripts/import_livebid.mjs` backs up the database and loads the snapshot into `historical_transactions`.
+
+Aukro.cz is no longer used for the archive or the map: its robots.txt disallows Anthropic's crawler. The older `scripts/fetch_real_data.mjs` is kept for reference only.
 
 ---
 
@@ -111,7 +110,9 @@ antikmapa/
 │       ├── realRecords.js          # Reference archive records (Hejtmánek, Zezula)
 │       └── sampleRecords.js        # Placeholder (sample data disabled)
 ├── scripts/
-│   ├── fetch_real_data.mjs         # Livebid.cz + Aukro.cz scraper
+│   ├── fetch_real_data.mjs         # Older scraper (reference only, not used)
+│   ├── collect_livebid.mjs         # Collects real Czech auction lots (Livebid.cz API)
+│   ├── import_livebid.mjs          # Loads the collected snapshot into the database
 │   ├── sanitize_for_demo.mjs       # Prepares the database for public deployment
 │   ├── clean_and_enhance_db.mjs    # Database cleanup, dispersion and fingerprints
 │   └── seed_db.mjs                 # Initial database setup
@@ -151,19 +152,21 @@ If you are an AI assistant continuing work on this project, **FOLLOW THESE RULES
    - Do not invent sources, prices, sales or "verified" records. If a value is missing, store `null` rather than a default.
    - Do not use real personal data. For demo content, use `example.com` addresses and anonymised names.
 
-5. **Scope — furniture and tableware (glass, porcelain) only:**
-   - The clocks and watches category (`horology`, `Rolex`) has been **removed entirely** at the client's explicit request.
+5. **Scope — antiques of the Czech auction market:**
+   - The clocks and watches category (`horology`, `Rolex`) has been **removed entirely** at the client's explicit request. Coins, stamps, banknotes, books, wine, weapons and jewellery are out of scope as well.
    - Allowed categories:
-     - `furniture` (armchairs, Thonet/Kohn chairs, chests of drawers, tables, cabinets, Halabala modernism, Biedermeier).
-     - `tableware` (Bohemian Moser glass, Pirkenhammer/Thun/Meissen porcelain, silver, ceramics).
+     - `furniture` (furniture and carpets).
+     - `tableware` (porcelain, glass, ceramics, silver).
+     - `fine_art` (paintings, drawings and graphics, sculpture).
+     - `decorative` (applied and decorative art).
 
 6. **Keep the archive and the marketplace separate:**
    - The `/historical` page shows **ONLY closed sales** (`status = 'sold'`). Active listings must never appear in the archive.
    - Active listings appear in the marketplace (`/marketplace`) and on the price map (`/analysis`) when the `Active` or `All` filter is selected.
 
-7. **Geographic distribution (2D disk dispersion):**
-   - Map points **must not line up** or stack on a single spot.
-   - Use uniform disk sampling ($r = R \sqrt{u}, \theta = 2\pi v$) around the city centres (Prague, Brno, Plzeň, Karlovy Vary, Liberec, Olomouc).
+7. **Geography:**
+   - Store only real coordinates (the auction-house city, or `null` if unknown). Never invent or randomise stored locations.
+   - Overlapping markers may be spread on screen only (see `components/MapView.jsx`).
 
 8. **Clean source URLs:**
    - Never generate links to non-existent domains such as `https://huntique.local/...`.
@@ -185,10 +188,7 @@ If you are an AI assistant continuing work on this project, **FOLLOW THESE RULES
 3. Do **not** set `HUNTIQUE_ALLOW_WRITES` on Vercel. `db.sqlite3` is bundled with the server functions via `outputFileTracingIncludes` in `next.config.mjs`.
 
 ## Known Data Limitations
-- 63 confirmed sales, almost all from 2024, so the year-by-year trend is illustrative only.
-- Locations are approximate (see above). The EUR→CZK rate is fixed at 25.2.
-- 415 records have no identified maker (`Unattributed`). Some Livebid lots are prints and paintings rather than furniture or tableware.
-- The 10 demo marketplace listings and their analytics are illustrative data.
+See [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md). The 10 demo marketplace listings and their analytics are illustrative data; the marketplace still contains Aukro listings collected earlier.
 
 ## Running & Managing the App
 
