@@ -1,0 +1,11 @@
+node_modules
+.next
+.env*
+!.env.example
+
+# local database state and backups (deploy a sanitized copy only, see README)
+db.sqlite3-wal
+db.sqlite3-shm
+backups/
+.claude/
+data/scraped_real_antiques.json
