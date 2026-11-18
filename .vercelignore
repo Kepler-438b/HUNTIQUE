@@ -6,8 +6,8 @@ backups
 db.sqlite3-wal
 db.sqlite3-shm
 .claude
-huntiqueLogo.png
-mainImg.jpg
-mainImg1.jpg
-*.bat
+/huntiqueLogo.png
+/mainImg.jpg
+/mainImg1.jpg
+/*.bat
 data/scraped_real_antiques.json
