@@ -167,7 +167,7 @@ export default function PriceMapPage() {
               still running. Click a dot to see the price, auction, date and a link to the original listing.
             </p>
             <div className="note">
-              <strong>Location = auction house city.</strong> Each lot is placed at the city of the auction house that sold it
+              <strong>Location = auction house address.</strong> Each lot is placed at the address of the auction house that sold it
               (from the house's public address). Lots of the same house are fanned out around that point so they stay clickable;
               this is not the item's own location.
             </div>
@@ -227,7 +227,7 @@ function RecordDetail({ record: r, trend }) {
             )}
           </dd>
           <dt>Location</dt>
-          <dd>{r.city || "Unknown"}{r.location_precision === "auction_house_city" ? " (auction house city)" : ""}</dd>
+          <dd>{r.city || "Unknown"}{{ auction_house_address: " (auction house address)", auction_house_city: " (auction house city)" }[r.location_precision] || ""}</dd>
           {r.bids_count > 0 && (<><dt>Bids</dt><dd>{r.bids_count}</dd></>)}
           {r.verification_signature && (
             <>

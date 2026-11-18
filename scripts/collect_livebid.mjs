@@ -137,6 +137,9 @@ async function eurToCzk(dateIso) {
 // Geocoding of auction-house cities (OpenStreetMap Nominatim, 1 req/s, cached)
 // ---------------------------------------------------------------------------
 const GEO_FILE = path.join(DATA, "geocode_cache.json");
+// Street-address locations verified by scripts/geocode_houses.mjs (preferred over city geocoding)
+const HOUSE_FILE = path.join(DATA, "house_locations.json");
+const HOUSE_LOCATIONS = fs.existsSync(HOUSE_FILE) ? JSON.parse(fs.readFileSync(HOUSE_FILE, "utf8")) : {};
 const geoCache = fs.existsSync(GEO_FILE) ? JSON.parse(fs.readFileSync(GEO_FILE, "utf8")) : {};
 function cleanCity(city = "") {
   let c = city.trim();
@@ -258,7 +261,10 @@ async function toRecord(item, auction, status, cls) {
     return null;
   }
 
-  const geo = await geocode(auction.client?.address);
+  const houseLoc = HOUSE_LOCATIONS[`livebid_client_${auction.client?.clientId}`];
+  const geo = houseLoc?.verified
+    ? { lat: houseLoc.lat, lng: houseLoc.lng, label: cleanCity(auction.client?.address?.city || "") || houseLoc.address_used?.city, precise: true }
+    : await geocode(auction.client?.address);
   return {
     id: `livebid_${item.itemId}`,
     source_id: `livebid_client_${auction.client?.clientId}`,
@@ -289,7 +295,7 @@ async function toRecord(item, auction, status, cls) {
     city: geo?.label || cleanCity(auction.client?.address?.city || "") || null,
     lat: geo?.lat ?? null,
     lng: geo?.lng ?? null,
-    location_precision: geo ? "auction_house_city" : "unknown",
+    location_precision: geo ? (geo.precise ? "auction_house_address" : "auction_house_city") : "unknown",
     image_url: item.imageVersion != null ? `https://cdn.livebid.cz/imgs/${item.auctionId}/tn/${item.lotn}.jpg?v=${item.imageVersion}` : null,
     bids_count: Number(item.counterLimits) || 0,
     collected_at: NOW.toISOString(),

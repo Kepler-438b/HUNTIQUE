@@ -18,9 +18,10 @@ function displayPositions(records) {
   for (const list of groups.values()) {
     list.forEach((r, i) => {
       if (i === 0) return out.push([r, [r.lat, r.lng]]);
-      // Golden-angle spiral, ~150 m per ring step
+      // Golden-angle spiral, ~55 m per ring step: the largest house (~110 lots) stays within ~600 m
+      // of its address, so markers do not drift into neighbouring districts.
       const angle = i * 2.39996;
-      const dist = 0.0013 * Math.sqrt(i);
+      const dist = 0.0005 * Math.sqrt(i);
       const lat = Number(r.lat) + dist * Math.cos(angle);
       const lng = Number(r.lng) + (dist * Math.sin(angle)) / Math.cos((Number(r.lat) * Math.PI) / 180);
       out.push([r, [lat, lng]]);

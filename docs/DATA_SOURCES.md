@@ -42,7 +42,7 @@ Fine art dominates because that is what Czech auction houses mostly sell online;
 | **Livebid.cz** — Czech online auction platform used by 160+ Czech auction houses | All sold, unsold and current lots | Public JSON API used by the Livebid website itself (`https://livebid.cz/apiv2/auctions`, `/auctions/{link}/categories`, `/items?filters=auctionLink_{link}`) | `robots.txt` disallows only `/admin`, `/auth/`, `/profile`. Requests were rate-limited (1 request per 1.1 s, 414 requests in total) and sent with an honest User-Agent. Data is used for non-commercial academic purposes. |
 | **Arthouse Hejtmánek, Aukční dům Zezula** | 3 manually verified sales (`real_*`) | Read by hand from the published results / ČT24 report | Public pages, linked in each record |
 | **Czech National Bank (ČNB)** | EUR → CZK conversion | Official yearly exchange-rate file (`year.txt`) | Public data |
-| **OpenStreetMap Nominatim** | Coordinates of auction-house cities | Search API, 1 request/s, results cached in `data/geocode_cache.json` | OSM usage policy (low volume, cached, identified User-Agent) |
+| **OpenStreetMap Nominatim** | Coordinates of the auction houses' street addresses | Search + reverse API, ~1 request/s, results stored in `data/house_locations.json` | OSM usage policy (low volume, cached, identified User-Agent) |
 
 ### Sources considered but not used
 - **Aukro.cz** — its `robots.txt` contains `User-agent: ClaudeBot / Disallow: /`, so it was not collected by this pipeline. The Aukro listings collected earlier were removed from the archive and the map. (The marketplace page still contains Aukro listings from the earlier collection.)
@@ -70,14 +70,14 @@ node scripts/import_livebid.mjs                             # backs up and loads
    - Maker: the author published by the house; otherwise `Unattributed`.
    - Period: century or year mentioned in the lot text, or the author's life dates; otherwise `Unknown`.
    - Description: the house's short description, shortened to 300 characters; image: Livebid thumbnail URL (linked, not copied).
-7. **Location** — the city of the auction house from its public address, geocoded once. For Graciano, whose address contains only the postcode 60200, the city is Brno (the postcode's location).
+7. **Location** — the auction house's published street address, geocoded with OpenStreetMap and then **reverse-geocoded to confirm** that the point lies on the same street and in the same municipality (`scripts/geocode_houses.mjs`, results in `data/house_locations.json`). All 35 houses passed this check (`location_precision = auction_house_address`). Four houses published malformed address fields; their address was copied from their own text into the right field: Einszwei Gallery (street in the postcode field), Artkunst (street in the city field), Starožitnosti pod Kinskou ("Vítězná 11 / 530" → Vítězná 530/11) and Graciano (two addresses listed; the first, Veselá 39, Brno, is used). Three houses publish a postcode that differs from OSM (WEINBERG lists 10000 for Gogolova 228/8, which is 118 00 Praha 1 – Malá Strana; Antik Mašek and Avion differ only in the delivery postcode); the street address was used.
 8. **Import** — the database is backed up, scraped records are replaced by the snapshot, and each record gets a record fingerprint (SHA-256 of key fields).
 
 Raw API responses are cached in `data/raw/` (not committed), so the run can be repeated without fetching anything again; `--refresh` forces new downloads.
 
 ## 4. Limitations
 
-- **Location is the auction house's city, not the item's.** Lots are fanned out around that point on screen only; the stored coordinates are unchanged. Most houses are in Prague, so Prague dominates the map.
+- **Location is the auction house's address, not the item's.** Lots of one house are fanned out around that point on screen only (up to about 1 km for the largest houses); the stored coordinates are unchanged. Most houses are in Prague, so Prague dominates the map. Graciano also lists a Prague address; its lots are shown at the Brno address listed first.
 - **Hammer prices exclude the buyer's premium** (typically 18–25 % in Czech auctions). Premiums differ per house and are not included.
 - **Sample, not census.** Livebid.cz lists ~240,000 lots; this snapshot is a capped, time-spread sample of antique lots from Czech houses. Houses that do not publish on Livebid.cz (for example Dorotheum) are missing.
 - **Categories follow the houses' own categories**, mapped to our four groups; some houses use broad categories (e.g. "Glass and ceramics").

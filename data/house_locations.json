@@ -1,0 +1,1126 @@
+{
+ "livebid_client_39": {
+  "id": "livebid_client_39",
+  "name": "Einszwei Gallery",
+  "published": {
+   "street": "EinsZwei Gallery",
+   "city": "Praha 5",
+   "country": "CZ",
+   "postcode": "U Klikovky 118/4, 150 00"
+  },
+  "address_used": {
+   "street": "U Klikovky 118/4",
+   "postcode": "15000",
+   "city": "Praha 5",
+   "overridden": true
+  },
+  "lat": 50.072761,
+  "lng": 14.3722711,
+  "precision": "address",
+  "matched": "118/4, U Klikovky, Buďánka, Praha 5, obvod Praha 5, Praha, 150 00, Česko",
+  "reverse": {
+   "road": "U Klikovky",
+   "house_number": "118/4",
+   "suburb": "Praha 5",
+   "town": "Praha",
+   "postcode": "150 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_56": {
+  "id": "livebid_client_56",
+  "name": "Galerie Goltzova tvrz",
+  "published": {
+   "street": "Jablonského 427",
+   "city": "Čáslav",
+   "country": "CZ",
+   "postcode": "28601"
+  },
+  "address_used": {
+   "street": "Jablonského 427",
+   "postcode": "28601",
+   "city": "Čáslav"
+  },
+  "lat": 49.9128258,
+  "lng": 15.3939299,
+  "precision": "address",
+  "matched": "427/11, Jablonského, Staré Město, Čáslav, okres Kutná Hora, Středočeský kraj, 286 01, Česko",
+  "reverse": {
+   "road": "Jablonského",
+   "house_number": "427/11",
+   "suburb": "Staré Město",
+   "town": "Čáslav",
+   "postcode": "286 01"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_61": {
+  "id": "livebid_client_61",
+  "name": "Starožitnosti pod Kinskou s. r. o",
+  "published": {
+   "street": "Vítězná 11 / 530",
+   "city": "Praha 5",
+   "country": "CZ",
+   "postcode": "15000"
+  },
+  "address_used": {
+   "street": "Vítězná 530/11",
+   "postcode": "15000",
+   "city": "Praha 5",
+   "overridden": true
+  },
+  "lat": 50.0811061,
+  "lng": 14.4058254,
+  "precision": "address",
+  "matched": "530/11, Vítězná, Smíchov, Praha 5, obvod Praha 5, Praha, 150 00, Česko",
+  "reverse": {
+   "road": "Vítězná",
+   "house_number": "530/11",
+   "suburb": "Smíchov",
+   "town": "Praha",
+   "postcode": "150 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_21": {
+  "id": "livebid_client_21",
+  "name": "Galerie Goltzova tvrz - společná aukce",
+  "published": {
+   "street": "Jablonského 427",
+   "city": "Čáslav",
+   "country": "CZ",
+   "postcode": "28601"
+  },
+  "address_used": {
+   "street": "Jablonského 427",
+   "postcode": "28601",
+   "city": "Čáslav"
+  },
+  "lat": 49.9128258,
+  "lng": 15.3939299,
+  "precision": "address",
+  "matched": "427/11, Jablonského, Staré Město, Čáslav, okres Kutná Hora, Středočeský kraj, 286 01, Česko",
+  "reverse": {
+   "road": "Jablonského",
+   "house_number": "427/11",
+   "suburb": "Staré Město",
+   "town": "Čáslav",
+   "postcode": "286 01"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_82": {
+  "id": "livebid_client_82",
+  "name": "Starožitnosti Ostrava",
+  "published": {
+   "street": "Jiráskovo náměstí 8",
+   "city": "Ostrava",
+   "country": "CZ",
+   "postcode": "70200"
+  },
+  "address_used": {
+   "street": "Jiráskovo náměstí 8",
+   "postcode": "70200",
+   "city": "Ostrava"
+  },
+  "lat": 49.836933,
+  "lng": 18.2916382,
+  "precision": "address",
+  "matched": "121/8, Jiráskovo náměstí, Moravská Ostrava a Přívoz, Ostrava, okres Ostrava-město, Moravskoslezský kraj, 702 00, Česko",
+  "reverse": {
+   "road": "Jiráskovo náměstí",
+   "house_number": "121/8",
+   "suburb": "Moravská Ostrava a Přívoz",
+   "town": "Ostrava",
+   "postcode": "702 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_47": {
+  "id": "livebid_client_47",
+  "name": "Aukční síň Antik Mašek",
+  "published": {
+   "street": "Lidická 591/47",
+   "city": "Karlovy Vary",
+   "country": "CZ",
+   "postcode": "360 20"
+  },
+  "address_used": {
+   "street": "Lidická 591/47",
+   "postcode": "36020",
+   "city": "Karlovy Vary"
+  },
+  "lat": 50.2334109,
+  "lng": 12.8879997,
+  "precision": "address",
+  "matched": "591/47, Lidická, Nové Drahovice, Drahovice, Karlovy Vary, okres Karlovy Vary, Karlovarský kraj, 360 01, Česko",
+  "reverse": {
+   "road": "Lidická",
+   "house_number": "591/47",
+   "suburb": "Drahovice",
+   "town": "Karlovy Vary",
+   "postcode": "360 01"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": false
+  }
+ },
+ "livebid_client_35": {
+  "id": "livebid_client_35",
+  "name": "OriginalArte s.r.o.",
+  "published": {
+   "street": "Pštrossova 198/23",
+   "city": "Praha 1",
+   "country": "CZ",
+   "postcode": "11000"
+  },
+  "address_used": {
+   "street": "Pštrossova 198/23",
+   "postcode": "11000",
+   "city": "Praha 1"
+  },
+  "lat": 50.0790868,
+  "lng": 14.4157075,
+  "precision": "address",
+  "matched": "198/23, Pštrossova, Staré Město, obvod Praha 1, Praha, 110 00, Česko",
+  "reverse": {
+   "road": "Pštrossova",
+   "house_number": "198/23",
+   "suburb": "Staré Město",
+   "town": "Praha",
+   "postcode": "110 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_5": {
+  "id": "livebid_client_5",
+  "name": "Aukční síň Vltavín",
+  "published": {
+   "street": "Masarykovo nábřeží 36",
+   "city": "Praha ",
+   "country": "CZ",
+   "postcode": "110 00"
+  },
+  "address_used": {
+   "street": "Masarykovo nábřeží 36",
+   "postcode": "11000",
+   "city": "Praha"
+  },
+  "lat": 50.0800828,
+  "lng": 14.4140417,
+  "precision": "address",
+  "matched": "1648/36, Masarykovo nábřeží, Staré Město, obvod Praha 1, Praha, 110 00, Česko",
+  "reverse": {
+   "road": "Masarykovo nábřeží",
+   "house_number": "1648/36",
+   "suburb": "Staré Město",
+   "town": "Praha",
+   "postcode": "110 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_76": {
+  "id": "livebid_client_76",
+  "name": "Antikvariát Avion s.r.o.",
+  "published": {
+   "street": "1. máje 59/5",
+   "city": "Liberec",
+   "country": "CZ",
+   "postcode": "46001"
+  },
+  "address_used": {
+   "street": "1. máje 59/5",
+   "postcode": "46001",
+   "city": "Liberec"
+  },
+  "lat": 50.7665009,
+  "lng": 15.0540889,
+  "precision": "address",
+  "matched": "59/5, 1. máje, Pod nádražím, Nové Město, Staré Město, nečleněný Liberec, Liberec, okres Liberec, Liberecký kraj, 460 07, Česko",
+  "reverse": {
+   "road": "1. máje",
+   "house_number": "59/5",
+   "suburb": "Staré Město",
+   "town": "Liberec",
+   "postcode": "460 07"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": false
+  }
+ },
+ "livebid_client_30": {
+  "id": "livebid_client_30",
+  "name": "WEINBERG",
+  "published": {
+   "street": "Gogolova 228/8",
+   "city": "Praha 1",
+   "country": "CZ",
+   "postcode": "10000"
+  },
+  "address_used": {
+   "street": "Gogolova 228/8",
+   "postcode": "10000",
+   "city": "Praha 1"
+  },
+  "lat": 50.0950416,
+  "lng": 14.4096544,
+  "precision": "address",
+  "matched": "228/8, Gogolova, Malá Strana, obvod Praha 1, Praha, 118 00, Česko",
+  "reverse": {
+   "road": "Gogolova",
+   "house_number": "228/8",
+   "suburb": "Malá Strana",
+   "town": "Praha",
+   "postcode": "118 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": false
+  }
+ },
+ "livebid_client_60": {
+  "id": "livebid_client_60",
+  "name": "Aukční dům Zezula, s.r.o.",
+  "published": {
+   "street": "Hlinky 59/142c",
+   "city": "Brno",
+   "country": "CZ",
+   "postcode": "60300"
+  },
+  "address_used": {
+   "street": "Hlinky 59/142c",
+   "postcode": "60300",
+   "city": "Brno"
+  },
+  "lat": 49.1930741,
+  "lng": 16.5734572,
+  "precision": "address",
+  "matched": "59/142c, Hlinky, Pisárky, Brno-střed, Brno, okres Brno-město, Jihomoravský kraj, 603 00, Česko",
+  "reverse": {
+   "road": "Hlinky",
+   "house_number": "59/142c",
+   "suburb": "Pisárky",
+   "town": "Brno",
+   "postcode": "603 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_141": {
+  "id": "livebid_client_141",
+  "name": "Antique Galerie Bulín",
+  "published": {
+   "street": "Lázeňská 289/9",
+   "city": "Praha",
+   "country": "CZ",
+   "postcode": "11800"
+  },
+  "address_used": {
+   "street": "Lázeňská 289/9",
+   "postcode": "11800",
+   "city": "Praha"
+  },
+  "lat": 50.0867064,
+  "lng": 14.4055032,
+  "precision": "address",
+  "matched": "289/9, Lázeňská, Malá Strana, obvod Praha 1, Praha, 118 00, Česko",
+  "reverse": {
+   "road": "Lázeňská",
+   "house_number": "289/9",
+   "suburb": "Malá Strana",
+   "town": "Praha",
+   "postcode": "118 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_42": {
+  "id": "livebid_client_42",
+  "name": "Galerie Dílo",
+  "published": {
+   "street": "Radnická 386/1",
+   "city": "Brno",
+   "country": "CZ",
+   "postcode": "60200"
+  },
+  "address_used": {
+   "street": "Radnická 386/1",
+   "postcode": "60200",
+   "city": "Brno"
+  },
+  "lat": 49.1935751,
+  "lng": 16.6086642,
+  "precision": "address",
+  "matched": "386/1, Radnická, Brno-město, Brno-střed, Brno, okres Brno-město, Jihomoravský kraj, 602 00, Česko",
+  "reverse": {
+   "road": "Radnická",
+   "house_number": "386/1",
+   "suburb": "Brno-město",
+   "town": "Brno",
+   "postcode": "602 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_37": {
+  "id": "livebid_client_37",
+  "name": "ARTHOUSE HEJTMÁNEK",
+  "published": {
+   "street": "Goetheho 17/ 2 ",
+   "city": "Praha 6 - Bubeneč",
+   "country": "CZ",
+   "postcode": "16000"
+  },
+  "address_used": {
+   "street": "Goetheho 17/2",
+   "postcode": "16000",
+   "city": "Praha 6 - Bubeneč"
+  },
+  "lat": 50.1044692,
+  "lng": 14.4075785,
+  "precision": "address",
+  "matched": "17/2, Goetheho, Starý Bubeneč, Střešovice, Praha 6, obvod Praha 6, Praha, 160 00, Česko",
+  "reverse": {
+   "road": "Goetheho",
+   "house_number": "17/2",
+   "suburb": "Střešovice",
+   "town": "Praha",
+   "postcode": "160 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_6": {
+  "id": "livebid_client_6",
+  "name": "Galerie DOLMEN",
+  "published": {
+   "street": "Pštrossova 31",
+   "city": "Praha 1",
+   "country": "CZ",
+   "postcode": "110 00"
+  },
+  "address_used": {
+   "street": "Pštrossova 31",
+   "postcode": "11000",
+   "city": "Praha 1"
+  },
+  "lat": 50.0799174,
+  "lng": 14.4152478,
+  "precision": "address",
+  "matched": "221/31, Pštrossova, Staré Město, obvod Praha 1, Praha, 110 00, Česko",
+  "reverse": {
+   "road": "Pštrossova",
+   "house_number": "221/31",
+   "suburb": "Staré Město",
+   "town": "Praha",
+   "postcode": "110 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_13": {
+  "id": "livebid_client_13",
+  "name": "Starožitnosti-Galerie USTAR s.r.o.",
+  "published": {
+   "street": "Rytířská 532/9",
+   "city": "Praha 1",
+   "country": "CZ",
+   "postcode": "11000"
+  },
+  "address_used": {
+   "street": "Rytířská 532/9",
+   "postcode": "11000",
+   "city": "Praha 1"
+  },
+  "lat": 50.0843183,
+  "lng": 14.4210615,
+  "precision": "address",
+  "matched": "532/9, Rytířská, Staré Město, obvod Praha 1, Praha, 110 00, Česko",
+  "reverse": {
+   "road": "Rytířská",
+   "house_number": "532/9",
+   "suburb": "Staré Město",
+   "town": "Praha",
+   "postcode": "110 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_54": {
+  "id": "livebid_client_54",
+  "name": "Graciano",
+  "published": {
+   "street": "Veselá 39 , Brno          Opletalova 59, Praha 1",
+   "city": "",
+   "country": "CZ",
+   "postcode": "60200"
+  },
+  "address_used": {
+   "street": "Veselá 39",
+   "postcode": "60200",
+   "city": "Brno",
+   "overridden": true
+  },
+  "lat": 49.1963529,
+  "lng": 16.6056544,
+  "precision": "address",
+  "matched": "Kalina Gallery, 39, Veselá, Brno-město, Brno-střed, Brno, okres Brno-město, Jihomoravský kraj, 602 00, Česko",
+  "reverse": {
+   "road": "Veselá",
+   "house_number": "39",
+   "suburb": "Brno-město",
+   "town": "Brno",
+   "postcode": "602 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_134": {
+  "id": "livebid_client_134",
+  "name": "Antique Prague Balaš",
+  "published": {
+   "street": "Rytířská 21",
+   "city": "Praha 1",
+   "country": "CZ",
+   "postcode": "11000"
+  },
+  "address_used": {
+   "street": "Rytířská 21",
+   "postcode": "11000",
+   "city": "Praha 1"
+  },
+  "lat": 50.0846117,
+  "lng": 14.4215412,
+  "precision": "address",
+  "matched": "965/21, Rytířská, Staré Město, obvod Praha 1, Praha, 110 00, Česko",
+  "reverse": {
+   "road": "Rytířská",
+   "house_number": "965/21",
+   "suburb": "Staré Město",
+   "town": "Praha",
+   "postcode": "110 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_163": {
+  "id": "livebid_client_163",
+  "name": "Gallery Prague s.r.o.",
+  "published": {
+   "street": "Korunní 84",
+   "city": "Praha 10",
+   "country": "CZ",
+   "postcode": "10100"
+  },
+  "address_used": {
+   "street": "Korunní 84",
+   "postcode": "10100",
+   "city": "Praha 10"
+  },
+  "lat": 50.0752716,
+  "lng": 14.4523013,
+  "precision": "address",
+  "matched": "1143/84, Korunní, Žižkov, obvod Praha 3, Praha, 101 00, Česko",
+  "reverse": {
+   "road": "Korunní",
+   "house_number": "1143/84",
+   "suburb": "Žižkov",
+   "town": "Praha",
+   "postcode": "101 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_92": {
+  "id": "livebid_client_92",
+  "name": "Galerie Vinohradská",
+  "published": {
+   "street": "Vinohradska 26",
+   "city": "Praha 2",
+   "country": "CZ",
+   "postcode": "12000"
+  },
+  "address_used": {
+   "street": "Vinohradska 26",
+   "postcode": "12000",
+   "city": "Praha 2"
+  },
+  "lat": 50.07777,
+  "lng": 14.4369075,
+  "precision": "address",
+  "matched": "1368/26, Vinohradská, Vyšehrad, obvod Praha 2, Praha, 120 00, Česko",
+  "reverse": {
+   "road": "Vinohradská",
+   "house_number": "1368/26",
+   "suburb": "Vyšehrad",
+   "town": "Praha",
+   "postcode": "120 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_87": {
+  "id": "livebid_client_87",
+  "name": "Galerie Preclík",
+  "published": {
+   "street": "Velehradská 1926",
+   "city": "Staré Město",
+   "country": "CZ",
+   "postcode": "686 03"
+  },
+  "address_used": {
+   "street": "Velehradská 1926",
+   "postcode": "68603",
+   "city": "Staré Město"
+  },
+  "lat": 49.0820213,
+  "lng": 17.44141,
+  "precision": "address",
+  "matched": "1926, Velehradská, Staré Město, okres Uherské Hradiště, Zlínský kraj, 686 03, Česko",
+  "reverse": {
+   "road": "Velehradská",
+   "house_number": "1926",
+   "suburb": null,
+   "town": "Staré Město",
+   "postcode": "686 03"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_46": {
+  "id": "livebid_client_46",
+  "name": "Artkunst",
+  "published": {
+   "street": "Galerie U Betlémské kaple",
+   "city": "Betlémské nám. 8, Praha 1",
+   "country": "CZ",
+   "postcode": "110 00"
+  },
+  "address_used": {
+   "street": "Betlémské náměstí 8",
+   "postcode": "11000",
+   "city": "Praha 1",
+   "overridden": true
+  },
+  "lat": 50.0840369,
+  "lng": 14.4176951,
+  "precision": "address",
+  "matched": "1004/8, Betlémské náměstí, Staré Město, obvod Praha 1, Praha, 110 00, Česko",
+  "reverse": {
+   "road": "Betlémské náměstí",
+   "house_number": "1004/8",
+   "suburb": "Staré Město",
+   "town": "Praha",
+   "postcode": "110 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_158": {
+  "id": "livebid_client_158",
+  "name": "Antik Zámek Rychvald",
+  "published": {
+   "street": "Orlovská 1",
+   "city": "Rychvald",
+   "country": "CZ",
+   "postcode": "73532"
+  },
+  "address_used": {
+   "street": "Orlovská 1",
+   "postcode": "73532",
+   "city": "Rychvald"
+  },
+  "lat": 49.8650555,
+  "lng": 18.3518819,
+  "precision": "address",
+  "matched": "1, Orlovská, Rychvald, okres Karviná, Moravskoslezský kraj, 735 32, Česko",
+  "reverse": {
+   "road": "Orlovská",
+   "house_number": "1",
+   "suburb": null,
+   "town": "Rychvald",
+   "postcode": "735 32"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_17": {
+  "id": "livebid_client_17",
+  "name": "Aukční dům Sýpka",
+  "published": {
+   "street": "Tržiště 3",
+   "city": "Praha 1",
+   "country": "CZ",
+   "postcode": "11800"
+  },
+  "address_used": {
+   "street": "Tržiště 3",
+   "postcode": "11800",
+   "city": "Praha 1"
+  },
+  "lat": 50.0870678,
+  "lng": 14.4030859,
+  "precision": "address",
+  "matched": "3, Tržiště, Malá Strana, obvod Praha 1, Praha, 118 00, Česko",
+  "reverse": {
+   "road": "Tržiště",
+   "house_number": "3",
+   "suburb": "Malá Strana",
+   "town": "Praha",
+   "postcode": "118 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_40": {
+  "id": "livebid_client_40",
+  "name": "Aukční dům Blatná, s.r.o.",
+  "published": {
+   "street": "Písecká 317",
+   "city": "Blatná",
+   "country": "CZ",
+   "postcode": "38801"
+  },
+  "address_used": {
+   "street": "Písecká 317",
+   "postcode": "38801",
+   "city": "Blatná"
+  },
+  "lat": 49.4208903,
+  "lng": 13.8810331,
+  "precision": "address",
+  "matched": "317, Písecká, Blatná, okres Strakonice, Jihočeský kraj, 388 01, Česko",
+  "reverse": {
+   "road": "Písecká",
+   "house_number": "317",
+   "suburb": null,
+   "town": "Blatná",
+   "postcode": "388 01"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_53": {
+  "id": "livebid_client_53",
+  "name": "FINE ANTIQUES PRAGUE s.r.o.",
+  "published": {
+   "street": "Lázeňská 287/4",
+   "city": "Praha",
+   "country": "CZ",
+   "postcode": "11800"
+  },
+  "address_used": {
+   "street": "Lázeňská 287/4",
+   "postcode": "11800",
+   "city": "Praha"
+  },
+  "lat": 50.0867362,
+  "lng": 14.4059897,
+  "precision": "address",
+  "matched": "287/4, Lázeňská, Malá Strana, obvod Praha 1, Praha, 118 00, Česko",
+  "reverse": {
+   "road": "Lázeňská",
+   "house_number": "287/4",
+   "suburb": "Malá Strana",
+   "town": "Praha",
+   "postcode": "118 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_38": {
+  "id": "livebid_client_38",
+  "name": "AAA, s.r.o.",
+  "published": {
+   "street": "Jílová 2",
+   "city": "Brno",
+   "country": "CZ",
+   "postcode": "63900"
+  },
+  "address_used": {
+   "street": "Jílová 2",
+   "postcode": "63900",
+   "city": "Brno"
+  },
+  "lat": 49.1817561,
+  "lng": 16.5927715,
+  "precision": "address",
+  "matched": "108/2, Jílová, Kamenná kolonie, Štýřice, Brno-střed, Brno, okres Brno-město, Jihomoravský kraj, 639 00, Česko",
+  "reverse": {
+   "road": "Jílová",
+   "house_number": "108/2",
+   "suburb": "Štýřice",
+   "town": "Brno",
+   "postcode": "639 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_122": {
+  "id": "livebid_client_122",
+  "name": "GALERIE LAZARSKÁ - aukce s.r.o.",
+  "published": {
+   "street": "Lazarská 7",
+   "city": "Praha 1",
+   "country": "CZ",
+   "postcode": "11000"
+  },
+  "address_used": {
+   "street": "Lazarská 7",
+   "postcode": "11000",
+   "city": "Praha 1"
+  },
+  "lat": 50.0792394,
+  "lng": 14.421528,
+  "precision": "address",
+  "matched": "15/7, Lazarská, Nové Město, obvod Praha 1, Praha, 110 00, Česko",
+  "reverse": {
+   "road": "Lazarská",
+   "house_number": "15/7",
+   "suburb": "Nové Město",
+   "town": "Praha",
+   "postcode": "110 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_45": {
+  "id": "livebid_client_45",
+  "name": "Art Mozaika Praha s.r.o.",
+  "published": {
+   "street": "Kaprova 42/14",
+   "city": "Praha 1",
+   "country": "CZ",
+   "postcode": "11000"
+  },
+  "address_used": {
+   "street": "Kaprova 42/14",
+   "postcode": "11000",
+   "city": "Praha 1"
+  },
+  "lat": 50.0878191,
+  "lng": 14.4182957,
+  "precision": "address",
+  "matched": "Outback Prague, 42/14, Kaprova, Josefov, obvod Praha 1, Praha, 110 00, Česko",
+  "reverse": {
+   "road": "Kaprova",
+   "house_number": "42/14",
+   "suburb": "Josefov",
+   "town": "Praha",
+   "postcode": "110 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_71": {
+  "id": "livebid_client_71",
+  "name": "Antik u papouška",
+  "published": {
+   "street": "Kotlářská 28",
+   "city": "Brno",
+   "country": "CZ",
+   "postcode": "60200"
+  },
+  "address_used": {
+   "street": "Kotlářská 28",
+   "postcode": "60200",
+   "city": "Brno"
+  },
+  "lat": 49.2070248,
+  "lng": 16.6021202,
+  "precision": "address",
+  "matched": "589/28, Kotlářská, Veveří, Brno-střed, Brno, okres Brno-město, Jihomoravský kraj, 602 00, Česko",
+  "reverse": {
+   "road": "Kotlářská",
+   "house_number": "589/28",
+   "suburb": "Veveří",
+   "town": "Brno",
+   "postcode": "602 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_32": {
+  "id": "livebid_client_32",
+  "name": "ETCETERA ART s.r.o.",
+  "published": {
+   "street": "Smetanovo nábřeží 8",
+   "city": "Praha",
+   "country": "CZ",
+   "postcode": "11000"
+  },
+  "address_used": {
+   "street": "Smetanovo nábřeží 8",
+   "postcode": "11000",
+   "city": "Praha"
+  },
+  "lat": 50.0835968,
+  "lng": 14.4134448,
+  "precision": "address",
+  "matched": "331/8, Smetanovo nábřeží, Staré Město, obvod Praha 1, Praha, 110 00, Česko",
+  "reverse": {
+   "road": "Smetanovo nábřeží",
+   "house_number": "331/8",
+   "suburb": "Staré Město",
+   "town": "Praha",
+   "postcode": "110 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_143": {
+  "id": "livebid_client_143",
+  "name": "Bubec, o.p.s.",
+  "published": {
+   "street": "Tělovýchovná 748",
+   "city": "Praha 5 – Řeporyje",
+   "country": "CZ",
+   "postcode": "15500"
+  },
+  "address_used": {
+   "street": "Tělovýchovná 748",
+   "postcode": "15500",
+   "city": "Praha 5 – Řeporyje"
+  },
+  "lat": 50.0297784,
+  "lng": 14.31238,
+  "precision": "address",
+  "matched": "748, Tělovýchovná, Řeporyje, Praha-Řeporyje, obvod Praha 5, Praha, 155 00, Česko",
+  "reverse": {
+   "road": "Tělovýchovná",
+   "house_number": "748",
+   "suburb": "Řeporyje",
+   "town": "Praha",
+   "postcode": "155 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_57": {
+  "id": "livebid_client_57",
+  "name": "CFIG Arts a.s.",
+  "published": {
+   "street": "Sladkovského 767",
+   "city": "Pardubice ",
+   "country": "CZ",
+   "postcode": "53002"
+  },
+  "address_used": {
+   "street": "Sladkovského 767",
+   "postcode": "53002",
+   "city": "Pardubice"
+  },
+  "lat": 50.03532,
+  "lng": 15.7734979,
+  "precision": "address",
+  "matched": "767, Sladkovského, Střed, Zámek, Pardubice I, Pardubice, okres Pardubice, Pardubický kraj, 530 02, Česko",
+  "reverse": {
+   "road": "Sladkovského",
+   "house_number": "767",
+   "suburb": "Zámek",
+   "town": "Pardubice",
+   "postcode": "530 02"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_121": {
+  "id": "livebid_client_121",
+  "name": "GALERIE D´ART",
+  "published": {
+   "street": "Libušina 158",
+   "city": "Bechyně",
+   "country": "CZ",
+   "postcode": "39165"
+  },
+  "address_used": {
+   "street": "Libušina 158",
+   "postcode": "39165",
+   "city": "Bechyně"
+  },
+  "lat": 49.2973067,
+  "lng": 14.4695914,
+  "precision": "address",
+  "matched": "158, Libušina, Bechyně, okres Tábor, Jihočeský kraj, 391 65, Česko",
+  "reverse": {
+   "road": "Libušina",
+   "house_number": "158",
+   "suburb": null,
+   "town": "Bechyně",
+   "postcode": "391 65"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ },
+ "livebid_client_75": {
+  "id": "livebid_client_75",
+  "name": "Artbankers s.r.o.",
+  "published": {
+   "street": "Sinkulova 354/83",
+   "city": "Praha 4",
+   "country": "CZ",
+   "postcode": "14000"
+  },
+  "address_used": {
+   "street": "Sinkulova 354/83",
+   "postcode": "14000",
+   "city": "Praha 4"
+  },
+  "lat": 50.0583222,
+  "lng": 14.4309894,
+  "precision": "address",
+  "matched": "354/83, Sinkulova, Pankrác, Praha 4, obvod Praha 4, Praha, 140 00, Česko",
+  "reverse": {
+   "road": "Sinkulova",
+   "house_number": "354/83",
+   "suburb": "Praha 4",
+   "town": "Praha",
+   "postcode": "140 00"
+  },
+  "verified": true,
+  "checks": {
+   "sameStreet": true,
+   "sameTown": true,
+   "postcodeMatches": true
+  }
+ }
+}

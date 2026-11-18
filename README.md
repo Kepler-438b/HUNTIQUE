@@ -19,7 +19,7 @@ A register of completed antique sales in the Czech Republic.
 An interactive Leaflet map of the Czech Republic showing where sales and prices are distributed.
 - **View modes:** All · **Sold** (completed auctions, hammer price) · **Current** (auctions still running: current bid or starting price) · **Unsold** (lots that ended without a sale, starting price). Each status has its own colour.
 - **Real data:** Every point is a real lot from a Czech auction house, collected from Livebid.cz, with a link to the original listing. See [docs/DATA_SOURCES.md](docs/DATA_SOURCES.md) for counts, methods and limitations.
-- **Location = auction house city:** Each lot is placed at the city of the auction house that offered it (from the house's public address, geocoded with OpenStreetMap; `location_precision = auction_house_city`). Lots that share a location are fanned out on screen only, so they stay clickable; the stored coordinates are not changed.
+- **Location = auction house address:** Each lot is placed at the street address of the auction house that offered it (from the house's public address, geocoded with OpenStreetMap and reverse-verified; `location_precision = auction_house_address`). Lots that share a location are fanned out on screen only, so they stay clickable; the stored coordinates are not changed.
 - **Price trend chart:** An interactive curve of median prices by year for a given maker and item type (for example, Thonet chairs or Moser glass).
 
 ### 3. Offers & Buy Requests Marketplace (`/marketplace`)
@@ -165,7 +165,7 @@ If you are an AI assistant continuing work on this project, **FOLLOW THESE RULES
    - Active listings appear in the marketplace (`/marketplace`) and on the price map (`/analysis`) when the `Active` or `All` filter is selected.
 
 7. **Geography:**
-   - Store only real coordinates (the auction-house city, or `null` if unknown). Never invent or randomise stored locations.
+   - Store only real coordinates (the verified auction-house address from `data/house_locations.json`, or `null` if unknown). Never invent or randomise stored locations.
    - Overlapping markers may be spread on screen only (see `components/MapView.jsx`).
 
 8. **Clean source URLs:**

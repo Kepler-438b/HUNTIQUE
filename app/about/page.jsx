@@ -118,7 +118,7 @@ export default function AboutPage() {
 
       <h2>Location Accuracy &amp; Privacy</h2>
       <p style={{ lineHeight: 1.6 }}>
-        Map positions show the <strong>city of the auction house</strong> that offered the lot, taken from the house&apos;s public address on Livebid.cz and geocoded with OpenStreetMap. The item itself may be stored elsewhere. Lots of the same house are fanned out around that point on screen only, so they stay clickable. The prototype holds no personal data. Seller names are not shown, and the marketplace listings are labelled demo data.
+        Map positions show the <strong>address of the auction house</strong> that offered the lot, taken from the house&apos;s public address on Livebid.cz, geocoded with OpenStreetMap and checked by reverse geocoding. The item itself may be stored elsewhere. Lots of the same house are fanned out around that point on screen only, so they stay clickable. The prototype holds no personal data. Seller names are not shown, and the marketplace listings are labelled demo data.
       </p>
     </main>
   );

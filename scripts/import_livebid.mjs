@@ -12,6 +12,16 @@ import crypto from "crypto";
 
 const root = process.cwd();
 const dataset = JSON.parse(fs.readFileSync(path.join(root, "data", "livebid_dataset.json"), "utf8"));
+// Verified street-address locations of the auction houses (scripts/geocode_houses.mjs)
+const houseFile = path.join(root, "data", "house_locations.json");
+const houses = fs.existsSync(houseFile) ? JSON.parse(fs.readFileSync(houseFile, "utf8")) : {};
+// Manually verified records -> their auction house
+const REAL_HOUSE = { src_hejtmanek: "livebid_client_37", src_zezula: "livebid_client_60" };
+function placeAtHouse(r) {
+  const h = houses[r.source_id];
+  if (!h || h.lat == null || !h.verified) return r;
+  return { ...r, lat: h.lat, lng: h.lng, location_precision: "auction_house_address" };
+}
 const db = new Database(path.join(root, "db.sqlite3"));
 
 fs.mkdirSync(path.join(root, "backups"), { recursive: true });
@@ -65,7 +75,7 @@ const result = db.transaction(() => {
       active: r.price_type === "current_bid" ? "Auction still running; the price shown is the current highest bid." : "Auction still running; no bids yet, the price shown is the starting price.",
     }[r.status];
     insert.run({
-      ...r,
+      ...placeAtHouse(r),
       condition: null,
       is_sample: 0,
       note: `${statusNote}${fxNote}`,
@@ -74,7 +84,11 @@ const result = db.transaction(() => {
     inserted++;
   }
   // Manually verified records: mark their location honestly
-  db.prepare(`UPDATE historical_transactions SET location_precision = 'auction_house_city' WHERE id LIKE 'real_%'`).run();
+  const setLoc = db.prepare(`UPDATE historical_transactions SET lat = ?, lng = ?, location_precision = 'auction_house_address' WHERE id LIKE 'real_%' AND source_id = ?`);
+  for (const [src, houseId] of Object.entries(REAL_HOUSE)) {
+    const h = houses[houseId];
+    if (h?.verified) setLoc.run(h.lat, h.lng, src);
+  }
   return { removed, inserted };
 })();
 
