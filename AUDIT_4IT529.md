@@ -153,4 +153,4 @@ Scope of evidence: the `antikmapa` folder (Next.js source, `db.sqlite3`, scripts
 | Marketplace showed seed data only (`status=all` bug) | Fixed; 413 Aukro + 10 demo listings now load | `lib/db/index.js` |
 
 Backup of the original DB: `backups/db-before-sanitize-*.sqlite3` (gitignored).
-Still open: the public deployment itself (D1/D2). Remaining data limits: 63 sales, mostly from 2024, and some out-of-scope Livebid items (prints, paintings, documents).
+**Deployed (18 Nov 2026): https://antikmapa.vercel.app** (read-only; all write endpoints return 403). D1 is done; D2 is still open: add the URL to the team sheet and the report. Remaining data limits: 63 sales, mostly from 2024, and some out-of-scope Livebid items (prints, paintings, documents).
