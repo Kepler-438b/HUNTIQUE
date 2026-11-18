@@ -31,8 +31,7 @@ export default function RootLayout({ children }) {
             textAlign: "center",
           }}
         >
-          Student prototype (university Competitive Intelligence project). Archive and price map show real lots from Czech auction houses
-          (via Livebid.cz), placed at the auction house&apos;s city. Listings marked &quot;Demo&quot; are illustrative examples. Do not enter personal data.
+          Archive and price map show real lots from Czech auction houses (via Livebid.cz), placed at the auction house&apos;s city. Listings marked &quot;Demo&quot; are illustrative examples. Do not enter personal data.
         </div>
         {children}
       </body>
